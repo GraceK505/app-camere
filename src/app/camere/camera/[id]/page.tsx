@@ -1,4 +1,5 @@
 import ClientGallery from "@/components/ClientGallery";
+import { cookies, headers } from "next/headers";
 import Link from "next/link";
 
 interface PageProps {
@@ -6,7 +7,14 @@ interface PageProps {
 }
 
 export default async function SingleRoomPage({ params }: PageProps) {
-  const { id } = params;
+  const { id } = await params;
+  const isDev = process.env.NODE_ENV === "development";
+  const headersList = await headers();
+  const cookieStore = await cookies();
+
+  const protocol = headersList.get('x-forwarded-proto') || 'http';
+  const host = headersList.get('host') || 'localhost:3000';
+  const baseUrl = `${protocol}://${host}`;
 
   if (!id) {
     return <div className="p-8 text-center">ID de chambre manquant</div>;
@@ -15,7 +23,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
   try {
     // ✅ SAFE FETCH (works in dev + production)
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL}/api/getAll?id=${id}`,
+      `${baseUrl}/api/getAll`,
       {
         cache: "no-store",
       }
@@ -24,9 +32,8 @@ export default async function SingleRoomPage({ params }: PageProps) {
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
     }
-
     const allRooms = await response.json();
-
+    // Find room by id after fetching all
     const room = allRooms.find((r: any) => r.id.toString() === id);
 
     if (!room) {
@@ -116,7 +123,9 @@ export default async function SingleRoomPage({ params }: PageProps) {
             </ul>
           </div>
         </div>
-
+        <br />
+        <br />
+        <br />
         {/* GALLERY */}
         <ClientGallery data={room} />
 

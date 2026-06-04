@@ -19,7 +19,29 @@ export default async function SingleRoomPage({ params }: PageProps) {
   if (!id) {
     return <div className="p-8 text-center">ID de chambre manquant</div>;
   }
+  function renderWithInstagramTags(text: string) {
+    const parts = text.split(/(#[a-zA-Z0-9_]+)/g);
 
+    return parts.map((part, i) => {
+      if (part.startsWith("#")) {
+        const tag = part.replace("#", "");
+
+        return (
+          <a
+            key={i}
+            href={`https://www.instagram.com/explore/tags/${tag}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-400 font-semibold hover:underline"
+          >
+            {part}
+          </a>
+        );
+      }
+
+      return <span key={i}>{part}</span>;
+    });
+  }
   try {
     // ✅ SAFE FETCH (works in dev + production)
     const response = await fetch(
@@ -45,7 +67,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
       .slice(0, 3);
 
     const category = room.category?.replace("Camera ", "").toLowerCase();
-
+    const highlight = "text-white font-bold";
     const mainImage =
       room?.images?.[0]
         ? `/camere/${room.images[0].replace(/-\d+$/, "").trim()}.png`
@@ -97,20 +119,105 @@ export default async function SingleRoomPage({ params }: PageProps) {
         <div className="mt-20 grid lg:grid-cols-2 gap-10">
 
           {category === "eva" && (
-            <Block title="Camera Eva">
-              Camera luminosa, spaziosa e confortevole.
+            <Block>
+              <h2 className="text-2xl font-bold">
+                Camera Eva è luminosa, accogliente e pensata per chi vuole vivere Siracusa con più spazio e comfort.
+              </h2>
+
+              <p className="mt-4 text-white">
+                Dispone di un <strong className={highlight}>letto matrimoniale</strong>, un{" "}
+                <strong className={highlight}>divano letto</strong> e un{" "}
+                <strong className={highlight}>balcone con affaccio esterno</strong>, che regala luce naturale e un contatto diretto con la città.
+              </p>
+
+              <p className="mt-4 text-white">
+                Il <strong className={highlight}>bagno privato</strong> e gli spazi ben organizzati la rendono ideale sia per{" "}
+                <strong className={highlight}>coppie</strong> che per{" "}
+                <strong className={highlight}>piccoli gruppi o famiglie</strong>.
+              </p>
+
+              <p className="mt-4 text-white">
+                La camera è dotata di{" "}
+                <strong className={highlight}>aria condizionata</strong>,{" "}
+                <strong className={highlight}>mini frigo</strong>,{" "}
+                <strong className={highlight}>bollitore</strong> e{" "}
+                <strong className={highlight}>TV</strong>, per offrirti autonomia e comodità durante tutto il soggiorno.
+                <br />
+                <br />
+                Inclusi <strong className={highlight}>asciugamani</strong> e{" "}
+                <strong className={highlight}>kit doccia</strong>, per sentirsi subito a casa.
+
+                <p className="mt-4 text-white">
+                  {renderWithInstagramTags(`
+                    #geaguesthouse #siracusa #b&b #stanze #sicilia
+                  `)}
+                </p>
+              </p>
             </Block>
           )}
 
           {category === "aria" && (
-            <Block title="Camera Aria">
-              Spazio intimo e rilassante per soggiorni tranquilli.
+            <Block>
+              <h2 className="text-2xl font-bold">
+                Camera Aria è uno spazio intimo e rilassante, pensato per chi cerca comfort e tranquillità.
+              </h2>
+
+              <p className="mt-4 text-white">
+                Dotata di <strong className={highlight}>letto matrimoniale</strong>,{" "}
+                <strong className={highlight}>divano letto</strong> e{" "}
+                <strong className={highlight}>bagno privato</strong>, offre un ambiente funzionale e accogliente.
+              </p>
+
+              <p className="mt-4 text-white">
+                Il <strong className={highlight}>balcone con affaccio interno</strong> garantisce maggiore silenzio e privacy.
+              </p>
+
+              <p className="mt-4 text-white">
+                La presenza di{" "}
+                <strong className={highlight}>aria condizionata</strong>,{" "}
+                <strong className={highlight}>mini frigo</strong>,{" "}
+                <strong className={highlight}>bollitore</strong> e{" "}
+                <strong className={highlight}>TV</strong> assicura praticità e relax.
+                <br />
+                <br />
+                Inclusi <strong className={highlight}>asciugamani</strong> e{" "}
+                <strong className={highlight}>kit doccia</strong>.
+                {renderWithInstagramTags(`
+                  #geaguesthouse #siracusa #b&b #sicilia #casavacanze
+                `)}
+              </p>
             </Block>
           )}
 
           {category === "giulio" && (
-            <Block title="Camera Giulio">
-              Soluzione semplice e funzionale per ogni esigenza.
+            <Block>
+              <h2 className="text-2xl font-bold">
+                Camera Giulio è la scelta ideale per chi cerca tranquillità, essenzialità e riposo di qualità.
+              </h2>
+
+              <p className="mt-4 text-white">
+                Dotata di un <strong className={highlight}>letto matrimoniale</strong> e{" "}
+                <strong className={highlight}>bagno privato</strong>, è perfetta per soggiorni pratici e senza distrazioni.
+              </p>
+
+              <p className="mt-4 text-white">
+                La camera è equipaggiata con{" "}
+                <strong className={highlight}>aria condizionata</strong>,{" "}
+                <strong className={highlight}>mini frigo</strong>,{" "}
+                <strong className={highlight}>bollitore</strong> e{" "}
+                <strong className={highlight}>TV</strong>, per garantirti comfort e relax.
+              </p>
+
+              <p className="mt-4 text-white">
+                L’ambiente è curato e silenzioso, ideale per ricaricarsi dopo una giornata a Siracusa.
+                <br />
+                <br />
+                Inclusi <strong className={highlight}>asciugamani</strong> e{" "}
+                <strong className={highlight}>kit doccia</strong>.
+                {renderWithInstagramTags(`
+                  #b&bsiracusa #geaguesthouse #siracusa #casasiracusa
+                `)}
+              </p>
             </Block>
           )}
 
@@ -147,8 +254,8 @@ export default async function SingleRoomPage({ params }: PageProps) {
                     src={
                       item.images?.[0]
                         ? `/camere/${item.images[0]
-                            .replace(/-\d+$/, "")
-                            .trim()}.png`
+                          .replace(/-\d+$/, "")
+                          .trim()}.png`
                         : "https://blocks.astratic.com/img/general-img-landscape.png"
                     }
                     className="h-64 w-full object-cover"
@@ -192,7 +299,7 @@ function Block({ title, children }: any) {
   return (
     <div className="border rounded-3xl p-6">
       <h2 className="text-2xl font-bold">{title}</h2>
-      <p className="mt-4 text-gray-600">{children}</p>
+      <p className="mt-4 text-white">{children}</p>
     </div>
   );
 }

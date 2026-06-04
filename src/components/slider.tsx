@@ -100,7 +100,7 @@ const {data} = useGetAll();
                 style={{ backgroundImage: `url(${slide.image})` }}
               />
               {/* Overlay gradient */}
-              <div className={`absolute inset-0 ${slide.bgColor} opacity-80`} />
+              <div className={`absolute inset-0 opacity-80`} />
 
               {/* Contenu */}
               <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">

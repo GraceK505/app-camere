@@ -190,13 +190,13 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
                   href="https://wa.me/+393519999999?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20la%20camera%20${roomName}."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:scale-105 dark:bg-white dark:text-black"
+                  className="rounded-full border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133]  px-6 py-3 text-sm font-medium text-white transition hover:scale-105"
                 >
                   Prenota ora
                 </Link>
                 <Link
                   href={`/camere/camera/${room.id.toString()}`}
-                  className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium transition hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-900"
+                  className="rounded-full border-2 border-[#000000bd] text-[#2b2b2b] bg-white/40 hover:bg-white/70 py-2 px-6 transition hover:scale-105"
                 >
                   Dettagli
                 </Link>

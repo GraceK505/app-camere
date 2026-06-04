@@ -32,7 +32,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
             href={`https://www.instagram.com/explore/tags/${tag}/`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-emerald-400 font-semibold hover:underline"
+            className="text-[#4a4a4a] font-semibold hover:underline"
           >
             {part}
           </a>
@@ -105,7 +105,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
               <Link
                 href={`https://wa.me/393519999999?text=Ciao, vorrei prenotare ${room.category}`}
                 target="_blank"
-                className="px-6 py-3 bg-[#2b2b2b] text-[#e3dac8] rounded-full hover:scale-105 transition"
+                className="px-6 py-3 border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] rounded-full hover:scale-105 transition"
               >
                 Prenota ora
               </Link>
@@ -119,28 +119,22 @@ export default async function SingleRoomPage({ params }: PageProps) {
 
           {/* EVA */}
           {category === "eva" && (
-            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#2b2b2b]">
+            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#4a4a4a]">
 
               <h2 className="text-2xl font-bold">
                 Camera Eva è luminosa, accogliente e pensata per chi vuole vivere Siracusa con più spazio e comfort.
               </h2>
 
               <p className="mt-4">
-                Dispone di <strong className="text-[#2b2b2b] font-bold">letto matrimoniale</strong>,{" "}
-                <strong className="text-[#2b2b2b] font-bold">divano letto</strong> e{" "}
-                <strong className="text-[#2b2b2b] font-bold">balcone esterno</strong>.
+                Dispone di un letto matrimoniale, un divano letto e un balcone con affaccio esterno, che regala luce naturale e un contatto diretto con la città.
               </p>
 
               <p className="mt-4">
-                Il <strong className="text-[#2b2b2b] font-bold">bagno privato</strong> e gli spazi organizzati la rendono ideale per{" "}
-                <strong className="text-[#2b2b2b] font-bold">coppie e famiglie</strong>.
+                Il bagno privato e gli spazi ben organizzati la rendono ideale sia per coppie che per piccoli gruppi o famiglie.
               </p>
 
               <p className="mt-4">
-                Dotata di <strong className="text-[#2b2b2b] font-bold">aria condizionata</strong>,{" "}
-                <strong className="text-[#2b2b2b] font-bold">mini frigo</strong>,{" "}
-                <strong className="text-[#2b2b2b] font-bold">bollitore</strong> e{" "}
-                <strong className="text-[#2b2b2b] font-bold">TV</strong>.
+                La camera è dotata di aria condizionata, mini frigo, bollitore e TV, per offrirti autonomia e comodità durante tutto il soggiorno.
               </p>
 
               <p className="mt-4">
@@ -157,32 +151,26 @@ export default async function SingleRoomPage({ params }: PageProps) {
 
           {/* ARIA */}
           {category === "aria" && (
-            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#2b2b2b]">
+            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#4a4a4a]">
 
               <h2 className="text-2xl font-bold">
-                Camera Aria è uno spazio intimo e rilassante.
+                Camera Aria è uno spazio intimo e rilassante, pensato per chi cerca comfort e tranquillità.
               </h2>
 
               <p className="mt-4">
-                Dotata di <strong className="font-bold">letto matrimoniale</strong>,{" "}
-                <strong className="font-bold">divano letto</strong> e{" "}
-                <strong className="font-bold">bagno privato</strong>.
+                Dotata di letto matrimoniale, divano letto e bagno privato, offre un ambiente funzionale e accogliente, perfetto per ogni tipo di soggiorno.
               </p>
 
               <p className="mt-4">
-                Il <strong className="font-bold">balcone interno</strong> garantisce privacy e silenzio.
+                Il balcone con affaccio interno garantisce maggiore silenzio e privacy, ideale per riposare davvero e staccare dal ritmo della città.
               </p>
 
               <p className="mt-4">
-                Dotata di <strong className="font-bold">aria condizionata</strong>,{" "}
-                <strong className="font-bold">mini frigo</strong>,{" "}
-                <strong className="font-bold">bollitore</strong> e{" "}
-                <strong className="font-bold">TV</strong>.
+                La presenza di aria condizionata, mini frigo, bollitore e TV assicura praticità, indipendenza e momenti di relax.
               </p>
 
               <p className="mt-4">
-                Inclusi <strong className="font-bold">asciugamani</strong> e{" "}
-                <strong className="font-bold">kit doccia</strong>.
+                Asciugamani e kit doccia inclusi per un’esperienza completa e senza pensieri.
               </p>
 
               <div className="mt-4">
@@ -194,27 +182,26 @@ export default async function SingleRoomPage({ params }: PageProps) {
 
           {/* GIULIO */}
           {category === "giulio" && (
-            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#2b2b2b]">
+            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#4a4a4a]">
 
               <h2 className="text-2xl font-bold">
-                Camera Giulio è perfetta per relax e semplicità.
+                Camera Giulio è la scelta ideale per chi cerca tranquillità, essenzialità e riposo di qualità.
               </h2>
 
               <p className="mt-4">
-                Dotata di <strong className="font-bold">letto matrimoniale</strong> e{" "}
-                <strong className="font-bold">bagno privato</strong>.
+                Dotata di un comodo letto matrimoniale e bagno privato, è perfetta per soggiorni pratici e senza distrazioni, sia per viaggio che per esigenze lavorative o personali.
               </p>
 
               <p className="mt-4">
-                Dotata di <strong className="font-bold">aria condizionata</strong>,{" "}
-                <strong className="font-bold">mini frigo</strong>,{" "}
-                <strong className="font-bold">bollitore</strong> e{" "}
-                <strong className="font-bold">TV</strong>.
+                La camera è equipaggiata con aria condizionata, mini frigo, bollitore e TV, per garantirti comfort e relax in ogni momento della giornata.
+
               </p>
 
               <p className="mt-4">
-                Inclusi <strong className="font-bold">asciugamani</strong> e{" "}
-                <strong className="font-bold">kit doccia</strong>.
+                L’ambiente è curato, silenzioso e funzionale, ideale per ricaricarsi dopo una giornata a Siracusa.
+<br />
+<br />
+Inclusi asciugamani e kit doccia per un soggiorno senza pensieri.
               </p>
 
               <div className="mt-4">
@@ -312,7 +299,7 @@ function Block({ title, children }: any) {
   return (
     <div className="border rounded-3xl p-6">
       <h2 className="text-2xl font-bold">{title}</h2>
-      <p className="mt-4 text-white">{children}</p>
+      <p className="mt-4 text-[#4a4a4a]">{children}</p>
     </div>
   );
 }

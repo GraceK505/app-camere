@@ -81,21 +81,21 @@ export default function Slider() {
 
               {/* Contenu */}
               <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
-                <p className="text-xl md:text-2xl max-w-2xl">
+                <h2 className="text-xl text-stroke md:text-2xl max-w-2xl">
                   {slide.description}
-                </p>
+                </h2>
                 <div className="mt-8 flex items-center justify-center gap-4 sm:flex-row">
                   <a
                     href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full flex items-center gap-2 bg-white px-8 py-2 text-sm font-medium text-black transition hover:scale-105"
+                    className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 px-8 py-2 text-sm font-medium text-black transition hover:scale-105"
                   >
                     Prenota ora <WhatsAppLogo color="#25D366" />
                   </a>
                   <a
                     href="/camere#hero"
-                    className="rounded-full border border-white/40 px-8 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+                    className="rounded-full border-2 border-[#000000] text-[#2b2b2b] px-8 py-3 text-sm font-medium transition hover:bg-gray-500/50"
                   >
                     Scopri le camere
                   </a>

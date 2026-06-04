@@ -116,5 +116,32 @@ body {
 }
 
 .text-colors-gea {
-  color: #a8450b81; /* emerald-600 */
+  color: #6b4e3d; /* emerald-600 */
+}
+
+.text-stroke {
+  font-size: 3rem;
+  -webkit-text-stroke: 1px #6b4e3d;
+  -webkit-stroke-width: 2px;
+}
+
+.card-swiper .swiper-pagination-bullet-active{
+  background-color: #6b4e3d !important;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }

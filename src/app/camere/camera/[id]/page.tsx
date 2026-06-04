@@ -74,10 +74,11 @@ export default async function SingleRoomPage({ params }: PageProps) {
         : "https://blocks.astratic.com/img/general-img-landscape.png";
 
     return (
-      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24 bg-[#e3dac8] text-[#2b2b2b]">
 
         {/* HERO */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
+
           <div className="h-[320px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl">
             <img
               src={mainImage}
@@ -87,169 +88,181 @@ export default async function SingleRoomPage({ params }: PageProps) {
           </div>
 
           <div>
-            <p className="text-emerald-600 uppercase tracking-widest text-sm">
+
+            <p className="text-[#7a6a5a] uppercase tracking-widest text-sm">
               Chambre & Suite
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-bold mt-3">
+            <h1 className="text-4xl md:text-5xl font-bold mt-3 text-[#2b2b2b]">
               {room.category}
             </h1>
 
-            <p className="mt-5 text-gray-600">{room.description}</p>
+            <p className="mt-5 text-[#4a4a4a]">
+              {room.description}
+            </p>
 
             <div className="mt-8">
               <Link
                 href={`https://wa.me/393519999999?text=Ciao, vorrei prenotare ${room.category}`}
                 target="_blank"
-                className="px-6 py-3 bg-emerald-600 text-white rounded-full"
+                className="px-6 py-3 bg-[#2b2b2b] text-[#e3dac8] rounded-full hover:scale-105 transition"
               >
                 Prenota ora
               </Link>
             </div>
+
           </div>
         </div>
 
         {/* DETAILS */}
         <div className="mt-20 grid lg:grid-cols-2 gap-10">
 
+          {/* EVA */}
           {category === "eva" && (
-            <Block>
+            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#2b2b2b]">
+
               <h2 className="text-2xl font-bold">
                 Camera Eva è luminosa, accogliente e pensata per chi vuole vivere Siracusa con più spazio e comfort.
               </h2>
 
-              <p className="mt-4 text-white">
-                Dispone di un <strong className={highlight}>letto matrimoniale</strong>, un{" "}
-                <strong className={highlight}>divano letto</strong> e un{" "}
-                <strong className={highlight}>balcone con affaccio esterno</strong>, che regala luce naturale e un contatto diretto con la città.
+              <p className="mt-4">
+                Dispone di <strong className="text-[#2b2b2b] font-bold">letto matrimoniale</strong>,{" "}
+                <strong className="text-[#2b2b2b] font-bold">divano letto</strong> e{" "}
+                <strong className="text-[#2b2b2b] font-bold">balcone esterno</strong>.
               </p>
 
-              <p className="mt-4 text-white">
-                Il <strong className={highlight}>bagno privato</strong> e gli spazi ben organizzati la rendono ideale sia per{" "}
-                <strong className={highlight}>coppie</strong> che per{" "}
-                <strong className={highlight}>piccoli gruppi o famiglie</strong>.
+              <p className="mt-4">
+                Il <strong className="text-[#2b2b2b] font-bold">bagno privato</strong> e gli spazi organizzati la rendono ideale per{" "}
+                <strong className="text-[#2b2b2b] font-bold">coppie e famiglie</strong>.
               </p>
 
-              <p className="mt-4 text-white">
-                La camera è dotata di{" "}
-                <strong className={highlight}>aria condizionata</strong>,{" "}
-                <strong className={highlight}>mini frigo</strong>,{" "}
-                <strong className={highlight}>bollitore</strong> e{" "}
-                <strong className={highlight}>TV</strong>, per offrirti autonomia e comodità durante tutto il soggiorno.
-                <br />
-                <br />
-                Inclusi <strong className={highlight}>asciugamani</strong> e{" "}
-                <strong className={highlight}>kit doccia</strong>, per sentirsi subito a casa.
-
-                <p className="mt-4 text-white">
-                  {renderWithInstagramTags(`
-                    #geaguesthouse #siracusa #b&b #stanze #sicilia
-                  `)}
-                </p>
+              <p className="mt-4">
+                Dotata di <strong className="text-[#2b2b2b] font-bold">aria condizionata</strong>,{" "}
+                <strong className="text-[#2b2b2b] font-bold">mini frigo</strong>,{" "}
+                <strong className="text-[#2b2b2b] font-bold">bollitore</strong> e{" "}
+                <strong className="text-[#2b2b2b] font-bold">TV</strong>.
               </p>
+
+              <p className="mt-4">
+                Inclusi <strong className="text-[#2b2b2b] font-bold">asciugamani</strong> e{" "}
+                <strong className="text-[#2b2b2b] font-bold">kit doccia</strong>.
+              </p>
+
+              <div className="mt-4">
+                {renderWithInstagramTags(`#geaguesthouse #siracusa #b&b #stanze #sicilia`)}
+              </div>
+
             </Block>
           )}
 
+          {/* ARIA */}
           {category === "aria" && (
-            <Block>
+            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#2b2b2b]">
+
               <h2 className="text-2xl font-bold">
-                Camera Aria è uno spazio intimo e rilassante, pensato per chi cerca comfort e tranquillità.
+                Camera Aria è uno spazio intimo e rilassante.
               </h2>
 
-              <p className="mt-4 text-white">
-                Dotata di <strong className={highlight}>letto matrimoniale</strong>,{" "}
-                <strong className={highlight}>divano letto</strong> e{" "}
-                <strong className={highlight}>bagno privato</strong>, offre un ambiente funzionale e accogliente.
+              <p className="mt-4">
+                Dotata di <strong className="font-bold">letto matrimoniale</strong>,{" "}
+                <strong className="font-bold">divano letto</strong> e{" "}
+                <strong className="font-bold">bagno privato</strong>.
               </p>
 
-              <p className="mt-4 text-white">
-                Il <strong className={highlight}>balcone con affaccio interno</strong> garantisce maggiore silenzio e privacy.
+              <p className="mt-4">
+                Il <strong className="font-bold">balcone interno</strong> garantisce privacy e silenzio.
               </p>
 
-              <p className="mt-4 text-white">
-                La presenza di{" "}
-                <strong className={highlight}>aria condizionata</strong>,{" "}
-                <strong className={highlight}>mini frigo</strong>,{" "}
-                <strong className={highlight}>bollitore</strong> e{" "}
-                <strong className={highlight}>TV</strong> assicura praticità e relax.
-                <br />
-                <br />
-                Inclusi <strong className={highlight}>asciugamani</strong> e{" "}
-                <strong className={highlight}>kit doccia</strong>.
-                {renderWithInstagramTags(`
-                  #geaguesthouse #siracusa #b&b #sicilia #casavacanze
-                `)}
+              <p className="mt-4">
+                Dotata di <strong className="font-bold">aria condizionata</strong>,{" "}
+                <strong className="font-bold">mini frigo</strong>,{" "}
+                <strong className="font-bold">bollitore</strong> e{" "}
+                <strong className="font-bold">TV</strong>.
               </p>
+
+              <p className="mt-4">
+                Inclusi <strong className="font-bold">asciugamani</strong> e{" "}
+                <strong className="font-bold">kit doccia</strong>.
+              </p>
+
+              <div className="mt-4">
+                {renderWithInstagramTags(`#geaguesthouse #siracusa #b&b #sicilia #casavacanze`)}
+              </div>
+
             </Block>
           )}
 
+          {/* GIULIO */}
           {category === "giulio" && (
-            <Block>
+            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#2b2b2b]">
+
               <h2 className="text-2xl font-bold">
-                Camera Giulio è la scelta ideale per chi cerca tranquillità, essenzialità e riposo di qualità.
+                Camera Giulio è perfetta per relax e semplicità.
               </h2>
 
-              <p className="mt-4 text-white">
-                Dotata di un <strong className={highlight}>letto matrimoniale</strong> e{" "}
-                <strong className={highlight}>bagno privato</strong>, è perfetta per soggiorni pratici e senza distrazioni.
+              <p className="mt-4">
+                Dotata di <strong className="font-bold">letto matrimoniale</strong> e{" "}
+                <strong className="font-bold">bagno privato</strong>.
               </p>
 
-              <p className="mt-4 text-white">
-                La camera è equipaggiata con{" "}
-                <strong className={highlight}>aria condizionata</strong>,{" "}
-                <strong className={highlight}>mini frigo</strong>,{" "}
-                <strong className={highlight}>bollitore</strong> e{" "}
-                <strong className={highlight}>TV</strong>, per garantirti comfort e relax.
+              <p className="mt-4">
+                Dotata di <strong className="font-bold">aria condizionata</strong>,{" "}
+                <strong className="font-bold">mini frigo</strong>,{" "}
+                <strong className="font-bold">bollitore</strong> e{" "}
+                <strong className="font-bold">TV</strong>.
               </p>
 
-              <p className="mt-4 text-white">
-                L’ambiente è curato e silenzioso, ideale per ricaricarsi dopo una giornata a Siracusa.
-                <br />
-                <br />
-                Inclusi <strong className={highlight}>asciugamani</strong> e{" "}
-                <strong className={highlight}>kit doccia</strong>.
-                {renderWithInstagramTags(`
-                  #b&bsiracusa #geaguesthouse #siracusa #casasiracusa
-                `)}
+              <p className="mt-4">
+                Inclusi <strong className="font-bold">asciugamani</strong> e{" "}
+                <strong className="font-bold">kit doccia</strong>.
               </p>
+
+              <div className="mt-4">
+                {renderWithInstagramTags(`#b&bsiracusa #geaguesthouse #siracusa #casasiracusa`)}
+              </div>
+
             </Block>
           )}
 
-          <div className="border rounded-3xl p-6">
+          {/* EQUIPMENTS */}
+          <div className="border border-[#cbbfae] rounded-3xl p-6 bg-white/30">
             <h3 className="text-xl font-semibold">Équipements inclus</h3>
-            <ul className="mt-4 space-y-2">
+
+            <ul className="mt-4 space-y-2 text-[#4a4a4a]">
               {room?.equipments?.split(",").map((e: string, i: number) => (
                 <li key={i}>✓ {e}</li>
               ))}
             </ul>
           </div>
+
         </div>
-        <br />
-        <br />
-        <br />
+
+        <br /><br /><br />
+
         {/* GALLERY */}
         <ClientGallery data={room} />
 
         {/* RELATED */}
         {relatedRooms.length > 0 && (
           <div className="mt-24">
-            <h2 className="text-3xl font-bold">
+
+            <h2 className="text-3xl font-bold text-[#2b2b2b]">
               D’autres chambres à découvrir
             </h2>
 
             <div className="mt-8 grid md:grid-cols-3 gap-6">
+
               {relatedRooms.map((item: any) => (
                 <Link
                   key={item.id}
                   href={`/camere/camera/${item.id}`}
-                  className="border rounded-3xl overflow-hidden hover:shadow-xl transition"
+                  className="border border-[#cbbfae] rounded-3xl overflow-hidden hover:shadow-xl transition bg-white/30"
                 >
+
                   <img
                     src={
                       item.images?.[0]
-                        ? `/camere/${item.images[0]
-                          .replace(/-\d+$/, "")
-                          .trim()}.png`
+                        ? `/camere/${item.images[0].replace(/-\d+$/, "").trim()}.png`
                         : "https://blocks.astratic.com/img/general-img-landscape.png"
                     }
                     className="h-64 w-full object-cover"
@@ -257,13 +270,19 @@ export default async function SingleRoomPage({ params }: PageProps) {
                   />
 
                   <div className="p-5">
-                    <h3 className="font-semibold">{item.title}</h3>
-                    <p className="text-sm text-gray-600">
+
+                    <h3 className="font-semibold text-[#2b2b2b]">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-sm text-[#5a5a5a]">
                       {item.description}
                     </p>
+
                   </div>
                 </Link>
               ))}
+
             </div>
           </div>
         )}

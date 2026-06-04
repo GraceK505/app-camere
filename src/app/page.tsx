@@ -13,7 +13,7 @@ export default function HomePage() {
     <>
       <div className="min-h-screen bg-gradient-to-br from-zinc-40 to-gray-100 dark:from-white dark:to-zinc-100 font-sans transition-colors duration-300">
         {/* CONTENU PRINCIPAL AVEC PADDING POUR HEADER FIXE */}
-        <main className="bg-white">
+        <main className="relative w-full bg-[#e3dac8] min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg">
           {/* Slider avec espacement adapté */}
           <div className="w-full">
             <Slider />
@@ -24,13 +24,11 @@ export default function HomePage() {
           {/* <div className="w-full h-[500px] md:h-[600px]">
           <BookingCalendar />
         </div> */}
-          <div className="w-full h-[100px] md:h-[100px]">
-            {/* Vous pouvez ajouter un autre composant de slider ou une section ici */}
-          </div>
+          <div className="bg-gradient-to-t from-black via-[#9c9076] to-transparent"></div>
           {/* SECTION HERO / PRÉSENTATION */}
           <section className="max-w-full py-16 md:py-24 bg-white shadow-[inset_0_0_50px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center text-center px-6 mx-auto">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-black mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1f1f1f] dark:text-black mb-6">
                 Benvenuto a{" "}
                 <span className="text-colors-gea">GEA Guest House</span>
               </h1>
@@ -42,8 +40,8 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/camere"
-                  className="px-6 py-3 rounded-buttons text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-md"
+                  href="/camere#hero"
+                  className="px-6 py-3 border-2 border-[#000000bd] text-[#2b2b2b] bg-[#d9ad94] hover:bg-[#9c7744] hover:text-white rounded-full font-semibold transition-all transform hover:scale-105"
                 >
                   Nostre camere
                 </Link>

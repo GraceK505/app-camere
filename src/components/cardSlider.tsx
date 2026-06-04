@@ -73,12 +73,12 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
           breakpoints={{
             640: { slidesPerView: 2, spaceBetween: 20 },
             768: { slidesPerView: 3, spaceBetween: 30 },
-            1024: { slidesPerView: 3, spaceBetween: 10 },
+            1024: { slidesPerView: 2, spaceBetween: 10 },
           }}
           className="card-swiper pb-12"
         >
           {data.map((card: Room) => (
-            <SwiperSlide key={card.id} className="bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden">
+            <SwiperSlide key={card.id} className="bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden !w-[40%] !md:w-1/3">
               <Link
                 href={`/camera/${card.id}`}
                 className="bg-white dark:bg-white/10 overflow-hidden"
@@ -103,9 +103,9 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                       href="https://wa.me/+393519999999?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-full transition-colors"
+                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#2b2b2b] bg-[#6b4e3d] hover:bg-[#9c7744]  text-white text-sm rounded-full transition-colors"
                     >
-                      Prenota ora <WhatsAppLogo color="#25D366" />
+                      Prenota ora <WhatsAppLogo color="#fff" />
                     </Link>
                   </div>
                 </div>

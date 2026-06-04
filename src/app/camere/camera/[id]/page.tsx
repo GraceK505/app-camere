@@ -17,24 +17,28 @@ export default async function SingleRoomPage({ params }: PageProps) {
   if (!id) {
     return <div className="p-8 text-center">ID de chambre manquant</div>;
   }
- 
+
   try {
-  const headersList = await headers();
-  const protocol = headersList.get('x-forwarded-proto') || 'http';
-  const host = headersList.get('host') || 'localhost:3000';
-  const baseUrl = `${protocol}://${host}`;
+    const headersList = await headers();
+    const protocol = headersList.get('x-forwarded-proto') || 'http';
+    const host = headersList.get('host') || 'localhost:3000';
+    const baseUrl = `${protocol}://${host}`;
 
-  // Fetch single room (assuming API returns all rooms)
-  const response = await fetch(`${baseUrl}/api/getAll?id=${id}`);
-  if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
-  const allRooms = await response.json();
-  const room = allRooms.find((r: any) => r.id.toString() === id);
-  if (!room) return <div className="p-8 text-center">Chambre non trouvée</div>;
+    // Fetch single room (assuming API returns all rooms)
+    const response = await fetch(`${baseUrl}/api/getAll?id=${id}`, {
+      headers: {
+        Cookie: cookieStore.toString(),
+      },
+    });
+    if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
+    const allRooms = await response.json();
+    const room = allRooms.find((r: any) => r.id.toString() === id);
+    if (!room) return <div className="p-8 text-center">Chambre non trouvée</div>;
 
-  // Fetch related rooms
-  const multipleRooms = await fetch(`${baseUrl}/api/getAll`);
-  const allRoomsList = await multipleRooms.json();
-  const relatedRooms = allRoomsList.filter((r: any) => r.id.toString() !== id).slice(0, 2);
+    // Fetch related rooms
+    const multipleRooms = await fetch(`${baseUrl}/api/getAll`);
+    const allRoomsList = await multipleRooms.json();
+    const relatedRooms = allRoomsList.filter((r: any) => r.id.toString() !== id).slice(0, 2);
     // Affichage
     return (
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">

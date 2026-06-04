@@ -65,7 +65,7 @@ const HeroSection = () => {
         <img
           src="/videos/hero-image.png"
           alt="Hero Video Placeholder"
-          className={`object-cover object-center md:w-full md:h-[90vh] transition-opacity duration-1000`}
+          className={`object-fit object-center md:w-full md:h-[90vh] transition-opacity duration-1000`}
         />
 
       </section>

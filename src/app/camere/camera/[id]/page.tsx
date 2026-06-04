@@ -97,12 +97,6 @@ export default async function SingleRoomPage({ params }: PageProps) {
 
             <p className="mt-5 text-gray-600">{room.description}</p>
 
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <Info label="Capacité" value={room.capacity} />
-              <Info label="Superficie" value={room.area} />
-              <Info label="Lit" value={room.bedType} />
-            </div>
-
             <div className="mt-8">
               <Link
                 href={`https://wa.me/393519999999?text=Ciao, vorrei prenotare ${room.category}`}

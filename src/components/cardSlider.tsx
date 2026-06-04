@@ -71,14 +71,14 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
           pagination={{ clickable: true }}
           modules={[Pagination]}
           breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 20 },
+            300: { slidesPerView: 1, spaceBetween: 20 },
             768: { slidesPerView: 3, spaceBetween: 30 },
             1024: { slidesPerView: 2, spaceBetween: 10 },
           }}
           className="card-swiper pb-12"
         >
           {data.map((card: Room) => (
-            <SwiperSlide key={card.id} className="bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden !w-[40%] !md:w-1/3">
+            <SwiperSlide key={card.id} className="bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden md!w-[40%] !md:w-1/3">
               <Link
                 href={`/camera/${card.id}`}
                 className="bg-white dark:bg-white/10 overflow-hidden"

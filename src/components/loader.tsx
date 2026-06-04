@@ -6,7 +6,7 @@ export default function Loader({ isLoading = true }: { isLoading?: boolean; fade
   return (
     <div
       className={`
-        fixed top-0 left-0 w-full h-screen z-100
+        fixed top-0 left-0 w-full h-full z-100
         flex items-center justify-center
         bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-black
         transition-opacity duration-500 ease-out

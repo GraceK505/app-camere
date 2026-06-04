@@ -100,7 +100,7 @@ const HeroSection = () => {
             Un contatto diretto, semplice e senza intermediari.
           </p>
 
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8 flex flex-col md:flex-row gap-4">
 
             <Link
               href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
@@ -185,7 +185,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
                 ))}
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-col md:flex-row flex-wrap gap-4">
                 <Link
                   href="https://wa.me/+393519999999?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20la%20camera%20${roomName}."
                   target="_blank"

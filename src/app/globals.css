@@ -125,6 +125,13 @@ body {
   -webkit-stroke-width: 2px;
 }
 
+@media (max-width: 768px) {
+  .text-stroke {
+    font-size: 1.5rem;
+    -webkit-text-stroke: 0.5px #6b4e3d;
+  }
+}
+
 .card-swiper .swiper-pagination-bullet-active{
   background-color: #6b4e3d !important;
 }

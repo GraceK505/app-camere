@@ -70,10 +70,10 @@ export default function Slider() {
       >
         {slidesData.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative h-[100vh] md:h-[100vh] w-full">
+            <div className="relative h-screen md:h-[100vh] w-full">
               {/* Image de fond */}
               <div
-                className="absolute inset-0 bg-contain bg-center"
+                className="absolute inset-0 md:bg-contain bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${slide.image})` }}
               />
               {/* Overlay gradient */}
@@ -81,10 +81,10 @@ export default function Slider() {
 
               {/* Contenu */}
               <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
-                <h2 className="text-xl text-stroke md:text-2xl max-w-2xl">
+                <h2 className="text-sm text-stroke md:text-2xl max-w-2xl">
                   {slide.description}
                 </h2>
-                <div className="mt-8 flex items-center justify-center gap-4 sm:flex-row">
+                <div className="mt-8 flex items-center flex-col md:flex-row justify-center gap-4 sm:flex-row">
                   <a
                     href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
                     target="_blank"

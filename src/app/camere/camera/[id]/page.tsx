@@ -1,6 +1,7 @@
 
 
 import ClientGallery from "@/components/ClientGallery";
+import { headers } from "next/headers";
 import Link from "next/link";
 
 interface PageProps {
@@ -18,26 +19,22 @@ export default async function SingleRoomPage({ params }: PageProps) {
   }
  
   try {
-    const response = await fetch(`${isDev ? 'http://localhost:3000' : 'https://gea-guesthouse.vercel.app'}/api/getAll?id=${id}`);
+  const headersList = await headers();
+  const protocol = headersList.get('x-forwarded-proto') || 'http';
+  const host = headersList.get('host') || 'localhost:3000';
+  const baseUrl = `${protocol}://${host}`;
 
-    if (!response.ok) {
-      throw new Error(`Erreur HTTP ${response.status}`);
-    }
+  // Fetch single room (assuming API returns all rooms)
+  const response = await fetch(`${baseUrl}/api/getAll?id=${id}`);
+  if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
+  const allRooms = await response.json();
+  const room = allRooms.find((r: any) => r.id.toString() === id);
+  if (!room) return <div className="p-8 text-center">Chambre non trouvée</div>;
 
-    const data = await response.json();
-
-    const multipleRooms = await fetch(`${isDev ? 'http://localhost:3000' : 'https://gea-guesthouse.vercel.app'}/api/getAll`);
-    const allRooms = await multipleRooms.json();
-
-    const relatedRooms = allRooms
-      .filter((r: any) => r.id.toString() !== id)
-      .slice(0, 2);
-
-    console.log("Chambre récupérée:", data);
-    if (!data || data.length === 0) {
-      return <div className="p-8 text-center">Chambre non trouvée</div>;
-    }
-    console.log(data && data.category?.replace("Camera ", "").toLowerCase() === "giulio");
+  // Fetch related rooms
+  const multipleRooms = await fetch(`${baseUrl}/api/getAll`);
+  const allRoomsList = await multipleRooms.json();
+  const relatedRooms = allRoomsList.filter((r: any) => r.id.toString() !== id).slice(0, 2);
     // Affichage
     return (
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
@@ -46,11 +43,11 @@ export default async function SingleRoomPage({ params }: PageProps) {
           <div className="relative w-full h-[320px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl">
             <img
               src={
-                data?.images?.[id]
-                  ? `/camere/${data.images[0].replace(/-\d+$/, "").trim()}.png`
+                room?.images?.[id]
+                  ? `/camere/${room.images[0].replace(/-\d+$/, "").trim()}.png`
                   : "https://blocks.astratic.com/img/general-img-landscape.png"
               }
-              alt={data?.category || "Image de la chambre"}
+              alt={room?.category || "Image de la chambre"}
               className="h-full w-full object-cover"
             />
           </div>
@@ -60,10 +57,10 @@ export default async function SingleRoomPage({ params }: PageProps) {
               Chambre & Suite
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {data?.category || "Chambre de luxe"}
+              {room?.category || "Chambre de luxe"}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-              {data?.description}
+              {room?.description}
             </p>
             <div className="mt-6 flex items-center gap-4">
             </div>
@@ -75,7 +72,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
                   Capacité
                 </p>
                 <p className="mt-1 font-semibold text-gray-900 dark:text-white">
-                  {data?.capacity || "2–4 personnes"}
+                  {room?.capacity || "2–4 personnes"}
                 </p>
               </div>
               <div className="rounded-2xl border border-gray-200 dark:border-gray-800 p-4">
@@ -83,13 +80,13 @@ export default async function SingleRoomPage({ params }: PageProps) {
                   Superficie
                 </p>
                 <p className="mt-1 font-semibold text-gray-900 dark:text-white">
-                  {data?.area || "32 m²"}
+                  {room?.area || "32 m²"}
                 </p>
               </div>
               <div className="rounded-2xl border border-gray-200 dark:border-gray-800 p-4">
                 <p className="text-sm text-gray-500 dark:text-gray-400">Lit</p>
                 <p className="mt-1 font-semibold text-gray-900 dark:text-white">
-                  {data?.bedType || "King Size"}
+                  {room?.bedType || "King Size"}
                 </p>
               </div>
             </div>
@@ -97,7 +94,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
             {/* CTA */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
-                href="https://wa.me/+393519999999?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20la%20camera%20${data?.category}."
+                href="https://wa.me/+393519999999?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20la%20camera%20${room?.category}."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold transition"
@@ -111,7 +108,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
         {/* DESCRIPTION LONGUE */}
         <div className="mt-20 grid lg:grid-cols-2 gap-10">
 
-          {data && data.category?.replace("Camera ", "").toLowerCase() === "eva" && (
+          {room && room.category?.replace("Camera ", "").toLowerCase() === "eva" && (
             <div className="rounded-3xl border border-gray-200 dark:border-gray-800 p-6 h-fit">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                 Camera Eva è luminosa, accogliente e pensata per chi vuole vivere Siracusa con più spazio e comfort.
@@ -137,7 +134,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
             </div>
           )}
 
-          {data && data.category?.replace("Camera ", "").toLowerCase() === "aria" && (
+          {room && room.category?.replace("Camera ", "").toLowerCase() === "aria" && (
             <div className="rounded-3xl border border-gray-200 dark:border-gray-800 p-6 h-fit">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                 Camera Aria è uno spazio intimo e rilassante, pensato per chi cerca comfort e tranquillità.
@@ -163,7 +160,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
             </div>
           )}
 
-          {data && data.category?.replace("Camera ", "").toLowerCase() === "giulio" && (
+          {room && room.category?.replace("Camera ", "").toLowerCase() === "giulio" && (
             <div className="rounded-3xl w-70vw flex flex-col border border-gray-200 dark:border-gray-800 p-6 h-max">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                 Camera Giulio è la scelta ideale per chi cerca tranquillità, essenzialità e riposo di qualità.
@@ -195,7 +192,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
             </h3>
             <ul className="mt-5 space-y-3 text-gray-600 dark:text-gray-300">
 
-              {data?.equipments?.split(",").map((equip: string, index: number) => (
+              {room?.equipments?.split(",").map((equip: string, index: number) => (
                 <li key={index}>✓ {equip}</li>
               ))}
             </ul>
@@ -204,7 +201,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
         <br />
         <br />
         <br />
-        <ClientGallery data={data} />
+        <ClientGallery data={room} />
         {/* SUGGESTIONS - affichées uniquement s'il y a d'autres chambres */}
         {relatedRooms.length > 0 && (
           <div className="mt-24">

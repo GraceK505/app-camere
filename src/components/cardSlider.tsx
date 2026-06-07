@@ -8,7 +8,7 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import WhatsAppLogo from "./WhatsAppLogo";
 
 type RoomStatus = "disponible" | "occupato";
@@ -28,6 +28,7 @@ type Room = {
 
 export default function CardSlider({ getData }: { getData: Room[] }) {
   const [data, setData] = useState<Room[]>([]);
+  const imgRef: React.RefObject<HTMLImageElement[]> = useRef([]);
 
   useEffect(() => {
     setData(getData);
@@ -71,27 +72,28 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
           pagination={{ clickable: true }}
           modules={[Pagination]}
           breakpoints={{
-            300: { slidesPerView: 1, spaceBetween: 20 },
+            200: { slidesPerView: 1, spaceBetween: 20 },
             768: { slidesPerView: 3, spaceBetween: 30 },
-            1024: { slidesPerView: 2, spaceBetween: 10 },
+            1024: { slidesPerView: 3, spaceBetween: 10 },
           }}
+          effect="swipe"
           className="card-swiper pb-12"
         >
           {data.map((card: Room) => (
-            <SwiperSlide key={card.id} className="bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden md!w-[40%] !md:w-1/3">
+            <SwiperSlide key={card.id} className={`bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden md:!w-[450px]`}>
               <Link
-                href={`/camera/${card.id}`}
-                className="bg-white dark:bg-white/10 overflow-hidden"
+                href={`/camere/camera/${card.id}`}
+                className="bg-white dark:bg-white/10 overflow-hidden flex flex-col"
               >
                 <div className="relative h-[300px] w-full rounded-t-lg overflow-hidden">
-                  <Image
+                  <img
+                    ref={(el) => {el !== null ? imgRef.current[card.id] = el : el}}
                     src={`/camere/${card.category.replace("Camera", "").toLowerCase().trim()}.png`}
                     alt={card.category || "Chambre d'hôtel"}
-                    fill
-                    className="object-cover transition-all duration-300 filter grayscale hover:grayscale-0 w-auto h-full"
+                    className="relative object-cover transition-all duration-300 filter grayscale hover:grayscale-0 w-auto h-full"
                   />
                 </div>
-                <div className="p-5">
+                <div className="relative p-5">
                   <h3 className="text-xl font-bold text-gray-800 dark:text-gray-900 mb-2">
                     {card.category}
                   </h3>

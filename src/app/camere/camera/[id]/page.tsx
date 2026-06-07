@@ -88,11 +88,6 @@ export default async function SingleRoomPage({ params }: PageProps) {
           </div>
 
           <div>
-
-            <p className="text-[#7a6a5a] uppercase tracking-widest text-sm">
-              Chambre & Suite
-            </p>
-
             <h1 className="text-4xl md:text-5xl font-bold mt-3 text-[#2b2b2b]">
               {room.category}
             </h1>
@@ -227,7 +222,7 @@ Inclusi asciugamani e kit doccia per un soggiorno senza pensieri.
         <br /><br /><br />
 
         {/* GALLERY */}
-        <ClientGallery data={room} />
+        <ClientGallery title={"Galleria immagini"} data={room} />
 
         {/* RELATED */}
         {relatedRooms.length > 0 && (

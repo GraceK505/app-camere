@@ -51,11 +51,11 @@ export default function Header() {
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 md:h-20">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 md:w-12 md:h-12 relative">
-                <div className="flex w-[80px] h-[90px] absolute -top-2">
+                <div className="flex w-[80px] h-[55px] absolute -top-2">
                   <img src="/logo.png" alt="Logo" className="!relative w-full h-full object-contain rounded-full" />
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function Header() {
 
               <a
                 href="mailto:gea.siracusa@hotmail.com"
-                className="text-menu flex items-center justify-between border border-gray-300  rounded-full gap-2 text-[#3a3a3a] py-1 px-8 transition-colors"
+                className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 dark:text-gray-200 py-1 px-8 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -146,14 +146,14 @@ export default function Header() {
                     {item}
                   </a>
                 ))}
-              <a
-                href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
-                className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 text-[#3a3a3a] py-1 px-8 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Prenota su WhatsApp <WhatsAppLogo />
-              </a>
+                <a
+                  href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
+                  className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 text-[#3a3a3a] py-1 px-8 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Prenota su WhatsApp <WhatsAppLogo />
+                </a>
                 <a
                   href="mailto:gea.siracusa@hotmail.com"
                   className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 text-[#3a3a3a] hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-8 transition-colors"

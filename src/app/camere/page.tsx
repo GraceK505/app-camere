@@ -168,7 +168,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
             {/* Content */}
             <div className="flex flex-col justify-center">
               <p className="mb-3 text-sm uppercase tracking-[0.3em] text-neutral-500 dark:text-neutral-400">
-                Suite {String(index + 1).padStart(2, "0")}
+                {/* Suite {String(index + 1).padStart(2, "0")} */}
               </p>
 
               <h2 className="text-3xl font-light tracking-tight md:text-5xl">

@@ -98,7 +98,7 @@ export default function Slider() {
                 </div>
               </div>
               {/* Contenu */}
-              <div className="absolute bottom-[30px] h-auto left-1/2 transform -translate-x-1/2 text-white text-center px-6">
+              <div className="absolute bottom-[30px] h-auto left-1/2 transform -translate-x-1/2 text-white text-center px-[10px] md:px-6">
                 <h2 className="text-sm text-stroke md:text-2xl max-w-2xl">
                   {slide.description}
                 </h2>

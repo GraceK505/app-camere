@@ -27,7 +27,7 @@ export default function Header() {
       {isOpen && (
         <button
           onClick={() => dispatch(closeDrop())}
-          className="fixed z-200 top-4 right-4 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+          className="fixed z-200 top-4 right-4 text-[#3a3a3a] hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
         >
           <svg
             className="w-6 h-6"
@@ -54,7 +54,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-20 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 md:w-12 md:h-12 text-emerald-600 dark:text-emerald-400">
+              <div className="w-10 h-10 md:w-12 md:h-12 relative">
                 <div className="flex w-[80px] h-[90px] absolute -top-2">
                   <img src="/logo.png" alt="Logo" className="!relative w-full h-full object-contain rounded-full" />
                 </div>
@@ -91,7 +91,7 @@ export default function Header() {
 
               <a
                 href="mailto:gea.siracusa@hotmail.com"
-                className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 dark:text-gray-200 py-1 px-8 transition-colors"
+                className="text-menu flex items-center justify-between border border-gray-300  rounded-full gap-2 text-[#3a3a3a] py-1 px-8 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -104,7 +104,7 @@ export default function Header() {
             {/* Mobile button */}
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="md:hidden p-2 rounded-md text-gray-700 text-[#3a3a3a] hover:bg-gray-100 dark:hover:bg-gray-800"
               aria-label="Menu"
             >
               <svg
@@ -140,7 +140,7 @@ export default function Header() {
                   <a
                     key={item}
                     href={`/${item.toLowerCase()}`}
-                    className="text-menu dark:text-gray-200 hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-2 rounded-md transition-colors"
+                    className="text-menu text-[#3a3a3a] hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-2 rounded-md transition-colors"
                     onClick={() => dispatch(toggleDrop())}
                   >
                     {item}
@@ -148,7 +148,7 @@ export default function Header() {
                 ))}
               <a
                 href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
-                className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 dark:text-gray-200 py-1 px-8 transition-colors"
+                className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 text-[#3a3a3a] py-1 px-8 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -156,7 +156,7 @@ export default function Header() {
               </a>
                 <a
                   href="mailto:gea.siracusa@hotmail.com"
-                  className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 dark:text-gray-200 hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-8 transition-colors"
+                  className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 text-[#3a3a3a] hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-8 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

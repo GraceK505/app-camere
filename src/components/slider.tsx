@@ -73,7 +73,7 @@ export default function Slider() {
             <div className="relative h-screen md:h-[100vh] w-full">
               {/* Image de fond */}
               <div
-                className="absolute inset-0 md:bg-contain bg-center bg-no-repeat"
+                className="absolute inset-0 md:bg-contain bg-center bg-no-repeat md:bg-repeat"
                 style={{ backgroundImage: `url(${slide.image})` }}
               />
               {/* Overlay gradient */}

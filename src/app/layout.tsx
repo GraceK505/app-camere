@@ -41,7 +41,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <Provider store={store}>
-        <body className="min-h-full flex flex-col bg-[#e3dac8] font-sans transition-colors duration-300">
+        <body style={{backgroundImage: "url(/sfondo.jpg)"}} className="min-h-full flex flex-col bg-[#e3dac8] font-sans transition-colors duration-300">
           {pathName === "/camere" && isLoading && <Loader isLoading={isLoading} />}
           <Header />
           <LenisProvider>

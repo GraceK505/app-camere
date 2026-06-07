@@ -79,11 +79,7 @@ export default function Slider() {
               {/* Overlay gradient */}
               <div className={`absolute inset-0 opacity-80`} />
 
-              {/* Contenu */}
-              <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
-                <h2 className="text-sm text-stroke md:text-2xl max-w-2xl">
-                  {slide.description}
-                </h2>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full flex flex-col items-center justify-end text-white text-center px-6">
                 <div className="mt-8 flex items-center flex-col md:flex-row justify-center gap-4 sm:flex-row">
                   <a
                     href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
@@ -100,7 +96,12 @@ export default function Slider() {
                     Scopri le camere
                   </a>
                 </div>
-
+              </div>
+              {/* Contenu */}
+              <div className="absolute bottom-[30px] h-auto left-1/2 transform -translate-x-1/2 text-white text-center px-6">
+                <h2 className="text-sm text-stroke md:text-2xl max-w-2xl">
+                  {slide.description}
+                </h2>
               </div>
             </div>
           </SwiperSlide>

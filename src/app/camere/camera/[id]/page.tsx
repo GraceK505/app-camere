@@ -74,12 +74,12 @@ export default async function SingleRoomPage({ params }: PageProps) {
         : "https://blocks.astratic.com/img/general-img-landscape.png";
 
     return (
-      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24 bg-[#e3dac8] text-[#2b2b2b]">
+      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24 bg-[#00000000] text-[#2b2b2b]" style={{backgroundImage: "url(/sfondo.jpeg)"}}>
 
         {/* HERO */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
 
-          <div className="h-[320px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl">
+          <div className="h-[320px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl">
             <img
               src={mainImage}
               alt={room.category}
@@ -98,7 +98,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
 
             <div className="mt-8">
               <Link
-                href={`https://wa.me/393519999999?text=Ciao, vorrei prenotare ${room.category}`}
+                href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
                 target="_blank"
                 className="px-6 py-3 border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] rounded-full hover:scale-105 transition"
               >

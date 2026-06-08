@@ -11,9 +11,9 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-zinc-40 to-gray-100 dark:from-white dark:to-zinc-100 font-sans transition-colors duration-300">
+      <div style={{backgroundImage: "url(/sfondo.jpeg)"}} className="min-h-screen bg-gradient-to-br from-zinc-40 to-gray-100 dark:from-white dark:to-zinc-100 font-sans transition-colors duration-300">
         {/* CONTENU PRINCIPAL AVEC PADDING POUR HEADER FIXE */}
-        <main className="relative w-full bg-[#e3dac8] min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg">
+        <main className="relative w-full min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg">
           {/* Slider avec espacement adapté */}
           <div className="w-full">
             <Slider />
@@ -41,9 +41,9 @@ export default function HomePage() {
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/camere#hero"
-                  className="px-6 py-3 border-2 border-[#000000bd] text-[#2b2b2b] bg-[#d9ad94] hover:bg-[#9c7744] hover:text-white rounded-full font-semibold transition-all transform hover:scale-105"
+                  className="px-6 py-3 border-2 border-[#000000bd] text-[#fff] bg-[#6b4e3d] hover:bg-[#5a4133] hover:text-white rounded-full font-semibold transition-all transform hover:scale-105"
                 >
-                  Nostre camere
+                 Le nostre camere
                 </Link>
                 <Link
                   href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
@@ -51,7 +51,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="px-6 py-3 border border-colors-gea text-colors-gea dark:text-emerald-400 rounded-full font-semibold rounded-buttons-hover transition-colors"
                 >
-                  Contatta ci
+                  Prenota ora
                 </Link>
               </div>
             </div>

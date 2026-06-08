@@ -35,20 +35,20 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10">
+    <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 min-h-screen" >
       
       {/* ================= LEFT: INFO ================= */}
-      <div className="space-y-6">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+      <div className="space-y-6 row-span-2 h-[40vh]">
+        <h2 className="text-3xl font-bold text-[#3a3a3a]">
           Contattaci
         </h2>
 
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p className="text-[#3a3a3a] leading-relaxed">
           Siamo a tua disposizione per qualsiasi informazione su disponibilità,
           prezzi o servizi della struttura.
         </p>
 
-        <div className="space-y-4 text-gray-700 dark:text-gray-200">
+        <div className="space-y-4 text-[#3a3a3a]">
           <div>
             <p className="font-semibold">📍 Indirizzo</p>
             <p>Siracusa, Italia</p>
@@ -72,14 +72,14 @@ export default function ContactSection() {
       </div>
 
       {/* ================= RIGHT: FORM ================= */}
-      <div className="bg-white dark:bg-white/10 shadow-lg rounded-2xl p-6">
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="bg-white dark:bg-white/10 shadow-lg rounded-2xl h-[40vh]">
+        <form onSubmit={handleSubmit} className="space-y-4 text-[#3a3a3a]  p-6 bg-white rounded-2xl">
           <input
             name="name"
             type="text"
             placeholder="Il tuo nome"
             required
-            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <input
@@ -87,7 +87,7 @@ export default function ContactSection() {
             type="email"
             placeholder="La tua email"
             required
-            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <textarea
@@ -95,7 +95,7 @@ export default function ContactSection() {
             placeholder="Il tuo messaggio"
             rows={5}
             required
-            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <button

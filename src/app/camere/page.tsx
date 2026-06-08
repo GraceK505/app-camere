@@ -49,7 +49,7 @@ export default function CamerePage() {
     setParsed(data);
   }, [data]);
   return (
-    <main className="w-full bg-[#e3dac8] min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg">
+    <main className="w-full bg-white min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg" style={{backgroundImage: "url(/sfondo.jpeg)"}}>
       <HeroSection />
       <RoomsSection cardsData={parsed} />
     </main>
@@ -75,11 +75,11 @@ const HeroSection = () => {
       <section
         id="hero"
         className="relative flex flex-col items-center justify-center text-center px-6 md:pt-10 pb-10"
-        style={{ backgroundColor: "#e3dac8" }}
+        style={{ backgroundColor: "#00000000" }}
       >
         <div className="flex flex-col items-center justify-center text-center px-4">
 
-          <h1 className="text-4xl md:text-6xl font-bold text-[#2b2b2b] mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#2b2b2b] mb-4 text-stroke-white">
             Prenota direttamente con{" "}<br />
             <span className="text-[#b07a4a]">GEA Guest House</span>
           </h1>
@@ -108,7 +108,7 @@ const HeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Prenota ora <WhatsAppLogo color="#2b2b2b" />
+              Prenota ora <WhatsAppLogo color="#25D366" />
             </Link>
 
             <Link

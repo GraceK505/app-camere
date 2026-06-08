@@ -72,17 +72,49 @@ export default function Slider() {
           <SwiperSlide key={slide.id}>
             <div className="relative h-screen md:h-[100vh] w-full">
               {/* Image de fond */}
+
               <div
-                className="absolute inset-0 md:bg-contain bg-center bg-no-repeat md:bg-repeat"
-                style={{ backgroundImage: `url(${slide.image})` }}
+                className="
+                  absolute
+                  top-[150px]
+                  left-1/2
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  z-50
+                  flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#eae6e0]/95
+                  w-[150px]
+                  h-[150px]
+                  shadow-[0_20px_60px_rgba(0,0,0,0.25)]
+                  backdrop-blur-sm
+                "
+              >
+                <img
+                  src="/logo.png"
+                  alt="GEA"
+                  className="
+                    w-[120px]
+                    h-auto
+                    brightness-110
+                    contrast-105
+                    drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+          
+                />
+              </div>
+              <div
+                className="absolute inset-0 bg-center bg-no-repeat md:bg-contain md:bg-repeat filter drop-shadow-md"
+                style={{ backgroundImage: "url(/home-slider/banner.png)" }}
               />
               {/* Overlay gradient */}
-              <div className={`absolute inset-0 opacity-80`} />
+              <div className={`absolute inset-0 opacity-50 filter drop-shadow-md`} />
 
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full flex flex-col items-center justify-end text-white text-center px-6">
                 <div className="mt-8 flex items-center flex-col md:flex-row justify-center gap-4 sm:flex-row">
                   <a
-                    href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
+                    href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 px-8 py-2 text-sm font-medium text-black transition hover:scale-105"

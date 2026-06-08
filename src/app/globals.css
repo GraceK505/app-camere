@@ -132,6 +132,20 @@ body {
   }
 }
 
+/* .text-stroke-white {
+  font-size: 3rem;
+  -webkit-text-stroke: 1px #edd3c4;
+  -web-kit-text-stroke-border:var(--foreground);
+  -webkit-stroke-width: 2px;
+}
+
+@media (max-width: 768px) {
+  .text-stroke-white {
+    font-size: 1.5rem;
+    -webkit-text-stroke: 0.5px #edd3c4;
+  }
+} */
+
 .card-swiper .swiper-pagination-bullet-active{
   background-color: #6b4e3d !important;
 }

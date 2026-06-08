@@ -90,10 +90,10 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                     ref={(el) => {el !== null ? imgRef.current[card.id] = el : el}}
                     src={`/camere/${card.category.replace("Camera", "").toLowerCase().trim()}.png`}
                     alt={card.category || "Chambre d'hôtel"}
-                    className="relative object-cover transition-all duration-300 filter grayscale hover:grayscale-0 w-auto h-full"
+                    className="relative object-cover transition-all duration-300 hover:scale-105 w-auto h-full"
                   />
                 </div>
-                <div className="relative p-5">
+                <div className="relative p-5 bg-white">
                   <h3 className="text-xl font-bold text-gray-800 dark:text-gray-900 mb-2">
                     {card.category}
                   </h3>
@@ -102,10 +102,10 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                   </p>
                   <div className="flex items-center justify-between mt-3">
                     <Link
-                      href="https://wa.me/+393519999999?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
+                      href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#2b2b2b] bg-[#6b4e3d] hover:bg-[#9c7744]  text-white text-sm rounded-full transition-colors"
+                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#2b2b2b] bg-emerald-500 hover:bg-[#059669]  text-white text-sm rounded-full transition-colors"
                     >
                       Prenota ora <WhatsAppLogo color="#fff" />
                     </Link>

@@ -37,20 +37,21 @@ export default function RootLayout({
 
   return (
     <html
+      style={{ backgroundImage: "url(/sfondo.jpeg)" }}
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <Provider store={store}>
-        <body style={{backgroundImage: "url(/sfondo.jpg)"}} className="min-h-full flex flex-col bg-[#e3dac8] font-sans transition-colors duration-300">
+        <body className="min-h-full flex flex-col bg-white font-sans transition-colors duration-300">
           {pathName === "/camere" && isLoading && <Loader isLoading={isLoading} />}
           <Header />
           <LenisProvider>
-            <main className="flex-1 pt-16 md:pt-20 bg-[#e3dac8]">{children}</main>
+            <main className="flex-1 pt-16 md:pt-20 bg-white" style={{ backgroundImage: "url(/sfondo.jpeg)" }}>{children}</main>
           </LenisProvider>
-          <footer className="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 mt-auto">
+          <footer className="bg-black border-t border-gray-800 mt-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
               <p className="text-center text-gray-500 dark:text-gray-400 text-sm">
-                © {new Date().getFullYear()} B&B_App. Tous droits réservés.
+                © {new Date().getFullYear()} GEA GUEST HOUSE Tous droits réservés.
               </p>
             </div>
           </footer>

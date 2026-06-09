@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDrop } from "../store/dropSlice";
-import { RootState } from "../store";
+import { toggleDrop } from "../app/[locale]/store/dropSlice";
+import { RootState } from "../app/[locale]/store";
 import Link from "next/link";
 import WhatsAppLogo from "./WhatsAppLogo";
 import MailLogo from "./MailLogo";

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Lock, Mail, Hotel } from "lucide-react";
 import { useGetAuth } from "@/customHooks/useGetAuth";
 import { useVerifyTokenOnly } from "@/customHooks/useSendToken";
-import { setCredentials } from "@/store/authSlice";
+import { setCredentials } from "@/app/[locale]/store/authSlice";
 import { useDispatch } from "react-redux";
 
 export default function LoginPage() {

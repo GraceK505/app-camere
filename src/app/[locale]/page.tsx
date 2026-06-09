@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import LenisProvider from "@/components/LenisProvider";
-import { store } from "@/store";
+import { store } from "@/app/[locale]/store";
 
 import { Provider } from "react-redux";
 import { Geist, Geist_Mono } from "next/font/google";

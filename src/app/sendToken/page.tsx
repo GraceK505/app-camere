@@ -1,20 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, Hotel } from "lucide-react";
+import { Eye, EyeOff, Lock, Mail, Hotel } from "lucide-react";
+import { useGetAuth } from "@/customHooks/useGetAuth";
 import { useVerifyTokenOnly } from "@/customHooks/useSendToken";
+import { setCredentials } from "@/store/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function LoginPage() {
   const router = useRouter();
   const [getToken, setGetToken] = useState("");
   const [error, setError] = useState("");
   const { isLoading: isVerifyingToken, verifyToken } = useVerifyTokenOnly();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleTokenField = (e: any) => {
     if (getToken !== "") {
       const token: string = getToken;
-      // dispatch(setCredentials({ token }));
+      dispatch(setCredentials({ token }));
       verifyToken(getToken).then((isValid) => {
         if (isValid) {
           router.push("/adminInterface");

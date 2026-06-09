@@ -15,6 +15,7 @@ export default function LoginPage() {
   const { isLoading, login } = useGetAuth();
   const { verifyToken } = useVerifyTokenOnly();
   const emailRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleDrop } from "../store/dropSlice";
 import { RootState } from "../store";
 import Link from "next/link";
 import WhatsAppLogo from "./WhatsAppLogo";
@@ -12,6 +13,7 @@ import { useLocale, useTranslations } from "next-intl";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isOpen = useSelector((state: RootState) => state.drop.isOpen);
   const t = useTranslations("menu");
   const t1 = useTranslations("home");
   const locale = useLocale();

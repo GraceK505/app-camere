@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleDrop } from "../store/dropSlice";
+import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import Link from "next/link";
 import WhatsAppLogo from "./WhatsAppLogo";
@@ -13,8 +12,6 @@ import { useLocale, useTranslations } from "next-intl";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isOpen = useSelector((state: RootState) => state.drop.isOpen);
-  const dispatch = useDispatch();
   const t = useTranslations("menu");
   const t1 = useTranslations("home");
   const locale = useLocale();
@@ -124,7 +121,6 @@ export default function Header() {
                     key={item}
                     href={`/${item.toLowerCase()}`}
                     className="text-menu text-[#3a3a3a] hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-2 rounded-md transition-colors"
-                    onClick={() => dispatch(toggleDrop())}
                   >
                     {item}
                   </a>

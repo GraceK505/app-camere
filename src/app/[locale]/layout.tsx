@@ -1,8 +1,6 @@
-import { NextIntlClientProvider } from 'next-intl';
+import {NextIntlClientProvider} from 'next-intl';
 import "../globals.css";
 import MainPage from './page';
-import { Provider } from 'react-redux';
-import { store } from '@/store';
 
 const loadMessages = async (locale: string) => {
   try {
@@ -23,10 +21,8 @@ export default async function LocaleLayout({
   const messages = await loadMessages(locale);
 
   return (
-    <Provider store={store}>
-      <NextIntlClientProvider messages={messages}>
-        <MainPage children={children} />
-      </NextIntlClientProvider>
-    </Provider>
+    <NextIntlClientProvider messages={messages}>
+      <MainPage children={children} />
+    </NextIntlClientProvider>
   );
 }

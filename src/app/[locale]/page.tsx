@@ -1,15 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useGetAll } from "@/customHooks/useGetAll";
 import Header from "@/components/Header";
 import LenisProvider from "@/components/LenisProvider";
 import { store } from "@/store";
 
 import { Provider } from "react-redux";
 import { Geist, Geist_Mono } from "next/font/google";
-import { redirect, usePathname } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import Loader from "@/components/loader";
 
 const geistSans = Geist({
@@ -26,11 +24,8 @@ interface MainPageProps {
   children: React.ReactNode;
 }
 export default function MainPage({children}: MainPageProps) {
-  const { data, loading, error } = useGetAll();
   const [isLoading, setIsLoading] = useState(true);
-  const t = useTranslations("home")
   const pathName = usePathname();
-  const locale = useLocale();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 3000);

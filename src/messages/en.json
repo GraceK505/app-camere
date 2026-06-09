@@ -1,0 +1,70 @@
+{
+  "menu": {
+    "home": "Home",
+    "camere": "Rooms",
+    "contatti": "Contacts"
+  },
+  "home": {
+    "book_now": "Book now",
+    "discover_rooms": "Discover the rooms",
+    "discover_room": "Discover the room",
+    "whatsapp_message": "Hello GEA Guest House, I would like to book a room.",
+    "welcome_title_normal": "Welcome to ",
+    "welcome_title_bold": "GEA Guest House",
+    "welcome_subtitle_normal1": "A perfect solution for those seeking efficiency, location and quality. ",
+    "welcome_subtitle_normal2": "A perfect solution for those seeking ",
+    "welcome_subtitle_bold1": "efficiency",
+    "welcome_subtitle_bold2": "location",
+    "welcome_subtitle_bold3": "quality",
+    "welcome_subtitle_normal3": ".",
+    "description_bold1": "A modern and functional structure",
+    "description_normal1": " located in one of the most strategic areas of Syracuse.\n\n",
+    "description_bold2": "A few minutes from the Greek Theatre of Syracuse",
+    "description_normal2": ", near the Umberto I Hospital and well connected to Ortigia, the structure is ideal both for tourist stays and for work or personal needs.\n\n",
+    "description_bold3": "The rooms are designed to offer comfort, practicality and independence",
+    "description_normal3": ", with self check-in and all essential services for a hassle-free stay."
+  },
+  "camere": {
+    "book_now": "Book now",
+    "details": "More details"
+  },
+    "hero": {
+    "title": "Book directly with",
+    "hotelName": "GEA Guest House",
+    "subtitle": "Contact us on WhatsApp or by email to check room availability.",
+    "description": "We will reply to you personally as soon as possible, helping you choose the solution that best suits your needs.",
+    "directContact": "A direct, simple, and no-middleman contact."
+  },
+  "buttons": {
+    "bookNow": "Book now"
+  },
+  "alt": {
+    "heroPlaceholder": "Hero Video Placeholder"
+  },
+   "rooms": {
+    "eva": {
+      "title": "Eva Room is bright, welcoming, and designed for those who want to experience Syracuse with more space and comfort.",
+      "description1": "It features a double bed, a sofa bed, and a balcony with an external view, providing natural light and direct contact with the city.",
+      "description2": "The private bathroom and well-organized spaces make it ideal for couples, small groups, or families.",
+      "description3": "The room is equipped with air conditioning, a mini fridge, a kettle, and a TV to offer you independence and convenience throughout your stay.",
+      "amenities": "Included towels and shower kit.",
+      "hashtags": "#geaguesthouse #siracusa #b&b #stanze #sicilia"
+    },
+    "aria": {
+      "title": "Aria Room is an intimate and relaxing space, designed for those seeking comfort and tranquility.",
+      "description1": "Equipped with a double bed, sofa bed, and private bathroom, it offers a functional and welcoming environment, perfect for any type of stay.",
+      "description2": "The balcony with an internal view ensures greater silence and privacy, ideal for truly resting and disconnecting from the city's rhythm.",
+      "description3": "The presence of air conditioning, a mini fridge, a kettle, and a TV ensures practicality, independence, and moments of relaxation.",
+      "amenities": "Towels and shower kit included for a complete, worry‑free experience.",
+      "hashtags": "#geaguesthouse #siracusa #b&b #sicilia #casavacanze"
+    },
+    "giulio": {
+      "title": "Giulio Room is the ideal choice for those seeking tranquility, essentiality, and quality rest.",
+      "description1": "Equipped with a comfortable double bed and private bathroom, it is perfect for practical, distraction‑free stays, whether for travel, work, or personal needs.",
+      "description2": "The room is fitted with air conditioning, a mini fridge, a kettle, and a TV to ensure comfort and relaxation at any time of the day.",
+      "description3": "The environment is cared for, quiet, and functional, ideal for recharging after a day in Syracuse.",
+      "amenities": "Towels and shower kit included for a worry‑free stay.",
+      "hashtags": "#b&bsiracusa #geaguesthouse #siracusa #casasiracusa"
+    }
+  }
+}

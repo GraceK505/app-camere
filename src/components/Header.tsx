@@ -2,19 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeDrop, toggleDrop } from "../store/dropSlice";
+import { toggleDrop } from "../store/dropSlice";
 import { RootState } from "../store";
 import Link from "next/link";
 import WhatsAppLogo from "./WhatsAppLogo";
 import MailLogo from "./MailLogo";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const isOpen = useSelector((state: RootState) => state.drop.isOpen);
   const dispatch = useDispatch();
-
+  const t = useTranslations("menu");
+  const t1 = useTranslations("home");
+  const locale = useLocale();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.innerWidth > 768 && setIsMenuOpen(true);
@@ -24,26 +27,6 @@ export default function Header() {
 
   return (
     <>
-      {isOpen && (
-        <button
-          onClick={() => dispatch(closeDrop())}
-          className="fixed z-200 top-4 right-4 text-[#3a3a3a] hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      )}
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
           ? "bg-white/90 dark:bg-black/90 backdrop-blur shadow-lg"
@@ -56,7 +39,7 @@ export default function Header() {
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 md:w-12 md:h-12 relative">
                 <div className="flex w-[80px] h-[55px] absolute -top-2">
-                  <img src="/logo.png" alt="Logo" className="!relative w-full h-full object-contain rounded-full" />
+                  <Image src="/logo.png" alt="Logo" fill className="!relative w-full h-full object-contain rounded-full" />
                 </div>
               </div>
             </Link>
@@ -64,9 +47,9 @@ export default function Header() {
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center space-x-8">
               {[
-                { label: "Home", href: "/" },
-                { label: "Camere ", href: "/camere" },
-                { label: "Contatti", href: "/contact" },
+                { label: t("home"), href: `/${locale}` },
+                { label: t("camere"), href: `/${locale}/camere` },
+                { label: t("contatti"), href: `/${locale}/contacts`},
               ].map((item) => (
                 <a
                   key={item.href}
@@ -86,7 +69,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Prenota su WhatsApp <WhatsAppLogo />
+                {t1("book_now")} <WhatsAppLogo />
               </a>
 
               <a
@@ -95,7 +78,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Prenota per email <MailLogo color="#fff" />
+                {t1("book_now")} <MailLogo color="#fff" />
               </a>
 
             </div>
@@ -152,7 +135,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Prenota su WhatsApp <WhatsAppLogo />
+                  {t1("book_now")} <WhatsAppLogo />
                 </a>
                 <a
                   href="mailto:gea.siracusa@hotmail.com"
@@ -160,7 +143,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Prenota per email <MailLogo color="#fff" />
+                  {t1("book_now")} <MailLogo color="#fff" />
                 </a>
               </div>
             </div>

@@ -1,4 +1,6 @@
 import ClientGallery from "@/components/ClientGallery";
+import { RoomDetails } from "@/components/RoomDetails";
+import { useTranslations } from "next-intl";
 import { cookies, headers } from "next/headers";
 import Link from "next/link";
 
@@ -10,7 +12,6 @@ export default async function SingleRoomPage({ params }: PageProps) {
   const { id } = await params;
   const isDev = process.env.NODE_ENV === "development";
   const headersList = await headers();
-  const cookieStore = await cookies();
 
   const protocol = headersList.get('x-forwarded-proto') || 'http';
   const host = headersList.get('host') || 'localhost:3000';
@@ -74,7 +75,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
         : "https://blocks.astratic.com/img/general-img-landscape.png";
 
     return (
-      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24 bg-[#00000000] text-[#2b2b2b]" style={{backgroundImage: "url(/sfondo.jpeg)"}}>
+      <section className="pt-20 max-w-7xl mx-auto px-4 py-16 md:py-24 bg-[#00000000] text-[#2b2b2b]" style={{ backgroundImage: "url(/sfondo.jpeg)" }}>
 
         {/* HERO */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
@@ -112,99 +113,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
         {/* DETAILS */}
         <div className="mt-20 grid lg:grid-cols-2 gap-10">
 
-          {/* EVA */}
-          {category === "eva" && (
-            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#4a4a4a]">
-
-              <h2 className="text-2xl font-bold">
-                Camera Eva è luminosa, accogliente e pensata per chi vuole vivere Siracusa con più spazio e comfort.
-              </h2>
-
-              <p className="mt-4">
-                Dispone di un letto matrimoniale, un divano letto e un balcone con affaccio esterno, che regala luce naturale e un contatto diretto con la città.
-              </p>
-
-              <p className="mt-4">
-                Il bagno privato e gli spazi ben organizzati la rendono ideale sia per coppie che per piccoli gruppi o famiglie.
-              </p>
-
-              <p className="mt-4">
-                La camera è dotata di aria condizionata, mini frigo, bollitore e TV, per offrirti autonomia e comodità durante tutto il soggiorno.
-              </p>
-
-              <p className="mt-4">
-                Inclusi <strong className="text-[#2b2b2b] font-bold">asciugamani</strong> e{" "}
-                <strong className="text-[#2b2b2b] font-bold">kit doccia</strong>.
-              </p>
-
-              <div className="mt-4">
-                {renderWithInstagramTags(`#geaguesthouse #siracusa #b&b #stanze #sicilia`)}
-              </div>
-
-            </Block>
-          )}
-
-          {/* ARIA */}
-          {category === "aria" && (
-            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#4a4a4a]">
-
-              <h2 className="text-2xl font-bold">
-                Camera Aria è uno spazio intimo e rilassante, pensato per chi cerca comfort e tranquillità.
-              </h2>
-
-              <p className="mt-4">
-                Dotata di letto matrimoniale, divano letto e bagno privato, offre un ambiente funzionale e accogliente, perfetto per ogni tipo di soggiorno.
-              </p>
-
-              <p className="mt-4">
-                Il balcone con affaccio interno garantisce maggiore silenzio e privacy, ideale per riposare davvero e staccare dal ritmo della città.
-              </p>
-
-              <p className="mt-4">
-                La presenza di aria condizionata, mini frigo, bollitore e TV assicura praticità, indipendenza e momenti di relax.
-              </p>
-
-              <p className="mt-4">
-                Asciugamani e kit doccia inclusi per un’esperienza completa e senza pensieri.
-              </p>
-
-              <div className="mt-4">
-                {renderWithInstagramTags(`#geaguesthouse #siracusa #b&b #sicilia #casavacanze`)}
-              </div>
-
-            </Block>
-          )}
-
-          {/* GIULIO */}
-          {category === "giulio" && (
-            <Block className="bg-white/40 border border-[#cbbfae] rounded-3xl p-6 text-[#4a4a4a]">
-
-              <h2 className="text-2xl font-bold">
-                Camera Giulio è la scelta ideale per chi cerca tranquillità, essenzialità e riposo di qualità.
-              </h2>
-
-              <p className="mt-4">
-                Dotata di un comodo letto matrimoniale e bagno privato, è perfetta per soggiorni pratici e senza distrazioni, sia per viaggio che per esigenze lavorative o personali.
-              </p>
-
-              <p className="mt-4">
-                La camera è equipaggiata con aria condizionata, mini frigo, bollitore e TV, per garantirti comfort e relax in ogni momento della giornata.
-
-              </p>
-
-              <p className="mt-4">
-                L’ambiente è curato, silenzioso e funzionale, ideale per ricaricarsi dopo una giornata a Siracusa.
-<br />
-<br />
-Inclusi asciugamani e kit doccia per un soggiorno senza pensieri.
-              </p>
-
-              <div className="mt-4">
-                {renderWithInstagramTags(`#b&bsiracusa #geaguesthouse #siracusa #casasiracusa`)}
-              </div>
-
-            </Block>
-          )}
+          {category && <RoomDetails category={category as 'eva' | 'aria' | 'giulio'} />}
 
           {/* EQUIPMENTS */}
           <div className="border border-[#cbbfae] rounded-3xl p-6 bg-white/30">

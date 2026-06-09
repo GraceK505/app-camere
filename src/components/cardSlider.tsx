@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import WhatsAppLogo from "./WhatsAppLogo";
+import { useLocale, useTranslations } from "next-intl";
 
 type RoomStatus = "disponible" | "occupato";
 type Card = {
@@ -29,7 +30,8 @@ type Room = {
 export default function CardSlider({ getData }: { getData: Room[] }) {
   const [data, setData] = useState<Room[]>([]);
   const imgRef: React.RefObject<HTMLImageElement[]> = useRef([]);
-
+  const t = useTranslations("home")
+  const locale = useLocale();
   useEffect(() => {
     setData(getData);
   }, [getData]);
@@ -42,25 +44,15 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
         </h2>
 
         <div className="text-center text-gray-600 dark:text-gray-900 mb-12 max-w-2xl mx-auto space-y-5 leading-relaxed">
-          <p>
-            Una struttura <strong>moderna</strong> e <strong>funzionale</strong>{" "}
-            situata in una delle zone più <strong>strategiche</strong> di
-            Siracusa.
-          </p>
-
-          <p>
-            A pochi minuti dal <strong>Teatro Greco di Siracusa</strong>, nelle
-            immediate vicinanze dell’<strong>Ospedale Umberto I</strong> e
-            facilmente collegata con <strong>Ortigia</strong>, la struttura è
-            ideale sia per soggiorni <strong>turistici</strong> che per esigenze{" "}
-            <strong>lavorative</strong> o personali.
-          </p>
-
-          <p>
-            Le camere sono progettate per offrire <strong>comfort</strong>,{" "}
-            <strong>praticità</strong> e <strong>indipendenza</strong>, con{" "}
-            <strong>self check-in</strong> e tutti i servizi essenziali per un
-            soggiorno senza complicazioni.
+          <p className="description">
+            <strong>{t('description_bold1')}</strong>
+            {t('description_normal1')}
+            <strong>{t('description_bold2')}</strong>
+            {t('description_normal2')}
+            </p>
+            <p>
+            <strong>{t('description_bold3')}</strong>
+            {t('description_normal3')}
           </p>
         </div>
 
@@ -81,13 +73,12 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
         >
           {data.map((card: Room) => (
             <SwiperSlide key={card.id} className={`bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden md:!w-[450px]`}>
-              <Link
-                href={`/camere/camera/${card.id}`}
+              <div
                 className="bg-white dark:bg-white/10 overflow-hidden flex flex-col"
               >
                 <div className="relative h-[300px] w-full rounded-t-lg overflow-hidden">
                   <img
-                    ref={(el) => {el !== null ? imgRef.current[card.id] = el : el}}
+                    ref={(el) => { el !== null ? imgRef.current[card.id] = el : el }}
                     src={`/camere/${card.category.replace("Camera", "").toLowerCase().trim()}.png`}
                     alt={card.category || "Chambre d'hôtel"}
                     className="relative object-cover transition-all duration-300 hover:scale-105 w-auto h-full"
@@ -100,18 +91,27 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                   <p className="text-gray-600 dark:text-gray-900 text-sm mb-3">
                     {card.description}
                   </p>
-                  <div className="flex items-center justify-between mt-3">
+                  <div className="flex gap-10 items-center justify-start mt-3">
                     <Link
                       href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#2b2b2b] bg-emerald-500 hover:bg-[#059669]  text-white text-sm rounded-full transition-colors"
                     >
-                      Prenota ora <WhatsAppLogo color="#fff" />
+                      {t("book_now")} <WhatsAppLogo color="#fff" />
+                    </Link>
+
+                    <Link
+                      href={`${locale}/camere/camera/${card.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#906b47] bg-gray-700/50  text-white text-sm rounded-full transition-colors"
+                    >
+                      {t("discover_room")} <WhatsAppLogo color="#fff" />
                     </Link>
                   </div>
                 </div>
-              </Link>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

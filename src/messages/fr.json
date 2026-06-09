@@ -1,0 +1,70 @@
+{
+  "menu": {
+    "home": "Accueil",
+    "camere": "Chambres",
+    "contatti": "Contacts"
+  },
+  "home": {
+    "book_now": "Réserver maintenant",
+    "discover_rooms": "Découvrir les chambres",
+    "discover_room": "En savoir plus",
+    "whatsapp_message": "Bonjour GEA Guest House, je souhaite réserver une chambre.",
+    "welcome_title_normal": "Bienvenue à ",
+    "welcome_title_bold": "GEA Guest House",
+    "welcome_subtitle_normal1": "Une solution parfaite pour ceux qui recherchent efficacité, emplacement et qualité. ",
+    "welcome_subtitle_normal2": "Une solution parfaite pour ceux qui recherchent ",
+    "welcome_subtitle_bold1": "l'efficacité",
+    "welcome_subtitle_bold2": "l'emplacement",
+    "welcome_subtitle_bold3": "la qualité",
+    "welcome_subtitle_normal3": ".",
+    "description_bold1": "Une structure moderne et fonctionnelle",
+    "description_normal1": " située dans l'une des zones les plus stratégiques de Syracuse.\n\n",
+    "description_bold2": "À quelques minutes du Théâtre Grec de Syracuse",
+    "description_normal2": ", à proximité immédiate de l'hôpital Umberto I et bien reliée à Ortigia, la structure est idéale aussi bien pour les séjours touristiques que pour les besoins professionnels ou personnels.\n\n",
+    "description_bold3": "Les chambres sont conçues pour offrir confort, praticité et indépendance",
+    "description_normal3": ", avec une entrée autonome et tous les services essentiels pour un séjour sans complication."
+  },
+    "camere":{
+    "book_now": "Réserver maintenant",
+    "details": "Plus des details"
+  },
+  "hero": {
+    "title": "Réservez directement avec",
+    "hotelName": "GEA Guest House",
+    "subtitle": "Contactez-nous sur WhatsApp ou par e-mail pour vérifier la disponibilité des chambres.",
+    "description": "Nous vous répondrons personnellement dans les plus brefs délais et vous aiderons à choisir la solution la mieux adaptée à vos besoins.",
+    "directContact": "Un contact direct, simple et sans intermédiaire."
+  },
+  "buttons": {
+    "bookNow": "Réserver maintenant"
+  },
+  "alt": {
+    "heroPlaceholder": "Placeholder de la vidéo d'accueil"
+  },
+  "rooms": {
+    "eva": {
+      "title": "La chambre Eva est lumineuse, accueillante et conçue pour ceux qui souhaitent vivre Syracuse avec plus d'espace et de confort.",
+      "description1": "Elle dispose d'un lit double, d'un canapé‑lit et d'un balcon avec vue extérieure, offrant une lumière naturelle et un contact direct avec la ville.",
+      "description2": "La salle de bain privée et les espaces bien organisés la rendent idéale pour les couples, les petits groupes ou les familles.",
+      "description3": "La chambre est équipée de la climatisation, d'un mini‑réfrigérateur, d'une bouilloire et d'une télévision pour vous offrir autonomie et confort tout au long de votre séjour.",
+      "amenities": "Serviettes et kit de douche inclus.",
+      "hashtags": "#geaguesthouse #siracusa #b&b #stanze #sicilia"
+    },
+    "aria": {
+      "title": "La chambre Aria est un espace intime et relaxant, conçu pour ceux qui recherchent confort et tranquillité.",
+      "description1": "Dotée d'un lit double, d'un canapé‑lit et d'une salle de bain privée, elle offre un environnement fonctionnel et accueillant, parfait pour tout type de séjour.",
+      "description2": "Le balcon avec vue intérieure garantit davantage de silence et d'intimité, idéal pour vraiment se reposer et déconnecter du rythme de la ville.",
+      "description3": "La présence de la climatisation, d'un mini‑réfrigérateur, d'une bouilloire et d'une télévision assure praticité, indépendance et moments de détente.",
+      "amenities": "Serviettes et kit de douche inclus pour une expérience complète et sans souci.",
+      "hashtags": "#geaguesthouse #siracusa #b&b #sicilia #casavacanze"
+    },
+    "giulio": {
+      "title": "La chambre Giulio est le choix idéal pour ceux qui recherchent la tranquillité, l'essentiel et un repos de qualité.",
+      "description1": "Dotée d'un confortable lit double et d'une salle de bain privée, elle est parfaite pour des séjours pratiques et sans distraction, que ce soit pour un voyage, un besoin professionnel ou personnel.",
+      "description2": "La chambre est équipée de la climatisation, d'un mini‑réfrigérateur, d'une bouilloire et d'une télévision pour vous garantir confort et détente à tout moment de la journée.",
+      "description3": "L'environnement est soigné, calme et fonctionnel, idéal pour recharger ses batteries après une journée à Syracuse.",
+      "amenities": "Serviettes et kit de douche inclus pour un séjour sans souci.",
+      "hashtags": "#b&bsiracusa #geaguesthouse #siracusa #casasiracusa"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "menu": {
+    "home": "Home",
+    "camere": "Camere",
+    "contatti": "Contatti"
+  },
+  "home": {
+    "book_now": "Prenota ora",
+    "discover_rooms": "Scopri le camere",
+    "discover_room": "Scopri la camere",
+    "whatsapp_message": "Ciao GEA Guest House, vorrei prenotare una camera.",
+    "welcome_title_normal": "Benvenuto a ",
+    "welcome_title_bold": "GEA Guest House",
+    "welcome_subtitle_normal1": "Una soluzione perfetta per chi cerca efficienza, posizione e qualità. ",
+    "welcome_subtitle_normal2": "Una soluzione perfetta per chi cerca ",
+    "welcome_subtitle_bold1": "efficienza",
+    "welcome_subtitle_bold2": "posizione",
+    "welcome_subtitle_bold3": "qualità",
+    "welcome_subtitle_normal3": ".",
+    "description_bold1": "Una struttura moderna e funzionale",
+    "description_normal1": " situata in una delle zone più strategiche di Siracusa.\n\n",
+    "description_bold2": "A pochi minuti dal Teatro Greco di Siracusa",
+    "description_normal2": ", nelle immediate vicinanze dell’Ospedale Umberto I e facilmente collegata con Ortigia, la struttura è ideale sia per soggiorni turistici che per esigenze lavorative o personali.\n\n",
+    "description_bold3": "Le camere sono progettate per offrire comfort, praticità e indipendenza",
+    "description_normal3": ", con self check-in e tutti i servizi essenziali per un soggiorno senza complicazioni."
+  },
+  "camere":{
+    "book_now": "Prenota ora",
+    "details": "Dettagli"
+  },
+    "hero": {
+    "title": "Prenota direttamente con",
+    "hotelName": "GEA Guest House",
+    "subtitle": "Contattaci su WhatsApp o via e-mail per verificare la disponibilità delle camere.",
+    "description": "Ti risponderemo personalmente nel più breve tempo possibile, aiutandoti a scegliere la soluzione più adatta alle tue esigenze.",
+    "directContact": "Un contatto diretto, semplice e senza intermediari."
+  },
+  "buttons": {
+    "bookNow": "Prenota ora"
+  },
+  "alt": {
+    "heroPlaceholder": "Hero Video Placeholder"
+  },
+  "rooms": {
+    "eva": {
+      "title": "Camera Eva è luminosa, accogliente e pensata per chi vuole vivere Siracusa con più spazio e comfort.",
+      "description1": "Dispone di un letto matrimoniale, un divano letto e un balcone con affaccio esterno, che regala luce naturale e un contatto diretto con la città.",
+      "description2": "Il bagno privato e gli spazi ben organizzati la rendono ideale sia per coppie che per piccoli gruppi o famiglie.",
+      "description3": "La camera è dotata di aria condizionata, mini frigo, bollitore e TV, per offrirti autonomia e comodità durante tutto il soggiorno.",
+      "amenities": "Inclusi asciugamani e kit doccia.",
+      "hashtags": "#geaguesthouse #siracusa #b&b #stanze #sicilia"
+    },
+    "aria": {
+      "title": "Camera Aria è uno spazio intimo e rilassante, pensato per chi cerca comfort e tranquillità.",
+      "description1": "Dotata di letto matrimoniale, divano letto e bagno privato, offre un ambiente funzionale e accogliente, perfetto per ogni tipo di soggiorno.",
+      "description2": "Il balcone con affaccio interno garantisce maggiore silenzio e privacy, ideale per riposare davvero e staccare dal ritmo della città.",
+      "description3": "La presenza di aria condizionata, mini frigo, bollitore e TV assicura praticità, indipendenza e momenti di relax.",
+      "amenities": "Asciugamani e kit doccia inclusi per un’esperienza completa e senza pensieri.",
+      "hashtags": "#geaguesthouse #siracusa #b&b #sicilia #casavacanze"
+    },
+    "giulio": {
+      "title": "Camera Giulio è la scelta ideale per chi cerca tranquillità, essenzialità e riposo di qualità.",
+      "description1": "Dotata di un comodo letto matrimoniale e bagno privato, è perfetta per soggiorni pratici e senza distrazioni, sia per viaggio che per esigenze lavorative o personali.",
+      "description2": "La camera è equipaggiata con aria condizionata, mini frigo, bollitore e TV, per garantirti comfort e relax in ogni momento della giornata.",
+      "description3": "L’ambiente è curato, silenzioso e funzionale, ideale per ricaricarsi dopo una giornata a Siracusa.",
+      "amenities": "Inclusi asciugamani e kit doccia per un soggiorno senza pensieri.",
+      "hashtags": "#b&bsiracusa #geaguesthouse #siracusa #casasiracusa"
+    }
+  }
+}

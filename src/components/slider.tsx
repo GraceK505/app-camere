@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { useGetAll } from "@/customHooks/useGetAll";
 import WhatsAppLogo from "./WhatsAppLogo";
+import { useTranslations } from "next-intl";
 
 const slidesData = [
   {
@@ -15,7 +16,7 @@ const slidesData = [
     title: "Slide 8",
     description: "Comfort moderno e design curato per un soggiorno semplice e senza pensieri.",
     bgColor: "bg-gradient-to-r from-fuchsia-500 to-pink-600",
-    image: "/home-slider/B711BE29-BC58-4E64-8226-959C33B73E1D.png",
+    image: "/home-slider/banner1.png",
   },
   // {
   //   id: 2,
@@ -50,7 +51,9 @@ const slidesData = [
 
 export default function Slider() {
   const { data } = useGetAll();
-  
+    const t = useTranslations('home');
+
+  const whatsappMessage = encodeURIComponent(t('whatsapp_message'));
   return (
     <div className="w-full h-[100vh] max-w-full mx-auto">
       <Swiper
@@ -75,7 +78,7 @@ export default function Slider() {
 
               <div
                 className="absolute inset-0 bg-center bg-no-repeat md:bg-contain md:bg-repeat filter drop-shadow-md"
-                style={{ backgroundImage: "url(/home-slider/B711BE29-BC58-4E64-8226-959C33B73E1D.png)" }}
+                style={{ backgroundImage: "url(/home-slider/banner1.png)" }}
               />
               {/* Overlay gradient */}
               <div className={`absolute inset-0 opacity-50 filter drop-shadow-md`} />
@@ -83,18 +86,18 @@ export default function Slider() {
               <div className="absolute bottom-[20%] w-full h-auto left-1/2 transform -translate-x-1/2 block m-auto text-white text-center px-[10px] md:px-6">
                 <div className="mt-8 flex items-center flex-col md:flex-row justify-center gap-4 sm:flex-row">
                   <a
-                    href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
+                    href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 px-8 py-2 text-sm font-medium text-black transition hover:scale-105"
                   >
-                    Prenota ora <WhatsAppLogo color="#25D366" />
+                   {t('book_now')} <WhatsAppLogo color="#25D366" />
                   </a>
                   <a
                     href="/camere#hero"
                     className="rounded-full border-2 border-[#000000] text-[#fff] px-8 py-3 text-sm font-medium transition bg-gray-500/50 hover:bg-gray-900/50"
                   >
-                    Scopri le camere
+                    {t('discover_rooms')}
                   </a>
                 </div>
               </div>

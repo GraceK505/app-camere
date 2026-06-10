@@ -1,33 +1,18 @@
-// middleware.ts
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+// middleware.js
+import { NextRequest, NextResponse } from 'next/server';
+
+const locales = ['en', 'fr', 'de'];
+const defaultLocale = 'en';
 
 export function middleware(request: NextRequest) {
-  const token = request.cookies.get('auth-token')?.value;
-  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin');
-  const isLoginRoute = request.nextUrl.pathname === '/login';
-  // const isApiAuthRoute = request.nextUrl.pathname.startsWith('/api/auth');
+  const pathname = request.nextUrl.pathname;
+  const pathnameHasLocale = locales.some(
+    locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  );
+  if (pathnameHasLocale) return;
 
-  // Allow access to login page and auth APIs without token
-  if (isLoginRoute /* || isApiAuthRoute */) {
-    return NextResponse.next();
-  }
-
-  // Protect admin routes – require valid token
-  if (isAdminRoute && !token) {
-    const loginUrl = new URL('/login', request.url);
-    loginUrl.searchParams.set('redirect', request.nextUrl.pathname);
-    return NextResponse.redirect(loginUrl);
-  }
-
-  // Optional: redirect logged-in user away from login page
-  if (isLoginRoute && token) {
-    return NextResponse.redirect(new URL('/admin', request.url));
-  }
-
-  return NextResponse.next();
+  const acceptLanguage = request.headers.get('accept-language') || '';
+  const preferredLocale = locales.find(locale => acceptLanguage.includes(locale)) || defaultLocale;
+  
+  return NextResponse.redirect(new URL(`/${preferredLocale}${pathname}`, request.url));
 }
-
-export const config = {
-  matcher: ['/admin/:path*', '/login'],
-};

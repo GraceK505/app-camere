@@ -31,11 +31,19 @@ const db = new sqlite3.Database(
   }
 );
 
-const getAllRooms = (): Promise<any[]> => {
+function getTableNameFromRequest(request: NextRequest): string {
+  const { pathname } = new URL(request.url);
+  // Match /en, /fr, /es at the start of the path (e.g., /en/api/rooms)
+  const match = pathname.match(/^\/(en|fr|es)\//);
+  const locale = match ? match[1] : 'en';
+  return `app_camere_${locale}`;
+}
+
+const getAllRooms = (tableName: string): Promise<any[]> => {
   return new Promise((resolve, reject) => {
-    db.all("SELECT * FROM app_camere", [], (err, rows) => {
+    db.all(`SELECT * FROM ${tableName}`, [], (err, rows) => {
       if (err) {
-        console.error("getAllRooms error:", err);
+        console.error(`getAllRooms error on ${tableName}:`, err);
         reject(err);
       } else {
         resolve(rows);
@@ -44,14 +52,14 @@ const getAllRooms = (): Promise<any[]> => {
   });
 };
 
-const getRoomById = (id: number): Promise<any> => {
+const getRoomById = (tableName: string, id: number): Promise<any> => {
   return new Promise((resolve, reject) => {
     db.get(
-      "SELECT * FROM app_camere WHERE id = ?",
+      `SELECT * FROM ${tableName} WHERE id = ?`,
       [id],
       (err, row) => {
         if (err) {
-          console.error("getRoomById error:", err);
+          console.error(`getRoomById error on ${tableName}:`, err);
           reject(err);
         } else {
           resolve(row);
@@ -63,11 +71,8 @@ const getRoomById = (id: number): Promise<any> => {
 
 const parseImages = (row: any): string[] => {
   if (!row?.images) return [];
-
   try {
-    return typeof row.images === "string"
-      ? JSON.parse(row.images)
-      : row.images;
+    return typeof row.images === "string" ? JSON.parse(row.images) : row.images;
   } catch (err) {
     console.error("Image parsing error:", err);
     return [];
@@ -76,29 +81,25 @@ const parseImages = (row: any): string[] => {
 
 export async function GET(request: NextRequest) {
   try {
+    // 1. Determine which table to use based on the request URL locale
+    const tableName = getTableNameFromRequest(request);
+    
     const { searchParams } = new URL(request.url);
     const idParam = searchParams.get("id");
-    console.log("Received GET request with id:", searchParams);
+    console.log(`Received GET request with id=${idParam} for table ${tableName}`);
+
     if (idParam) {
       const id = Number(idParam);
-
       if (Number.isNaN(id)) {
-        return NextResponse.json(
-          { error: "Invalid room id" },
-          { status: 400 }
-        );
+        return NextResponse.json({ error: "Invalid room id" }, { status: 400 });
       }
 
-      const row = await getRoomById(id);
-
+      const row = await getRoomById(tableName, id);
       if (!row) {
-        return NextResponse.json(
-          { error: "Room not found" },
-          { status: 404 }
-        );
+        return NextResponse.json({ error: "Room not found" }, { status: 404 });
       }
 
-      const room: Room = {
+      const room = {
         id: row.id,
         category: row.category,
         equipments: row.equipments,
@@ -106,15 +107,14 @@ export async function GET(request: NextRequest) {
         price: row.price,
         stato: row.stato,
         images: parseImages(row),
-        imagesPath: row.imagesPath,
+        imagePath: row.imagePath,  // corrected column name (singular)
       };
-
       return NextResponse.json(room);
     }
 
-    const rows = await getAllRooms();
-
-    const rooms: Room[] = rows.map((row) => ({
+    // No id -> get all rooms
+    const rows = await getAllRooms(tableName);
+    const rooms = rows.map((row) => ({
       id: row.id,
       category: row.category,
       equipments: row.equipments,
@@ -122,18 +122,16 @@ export async function GET(request: NextRequest) {
       price: row.price,
       stato: row.stato,
       images: parseImages(row),
-      imagesPath: row.imagesPath,
+      imagePath: row.imagePath,
     }));
 
     return NextResponse.json(rooms);
   } catch (error) {
     console.error("API ERROR:", error);
-
     return NextResponse.json(
       {
         error: "Failed to fetch rooms",
-        details:
-          error instanceof Error ? error.message : String(error),
+        details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 }
     );

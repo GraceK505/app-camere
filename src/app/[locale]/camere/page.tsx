@@ -49,7 +49,7 @@ export default function CamerePage() {
     setParsed(data);
   }, [data]);
   return (
-    <main className="w-full bg-white min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg pt-20" style={{ backgroundImage: "url(/sfondo.jpeg)" }}>
+    <main className="w-full bg-white min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg" style={{ backgroundImage: "url(/sfondo.jpeg)" }}>
       <HeroSection />
       <RoomsSection cardsData={parsed} />
     </main>
@@ -131,8 +131,6 @@ const HeroSection = () => {
 };
 
 const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
-  const roomName = cardsData.at(0)?.category || "Chambre de luxe";
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const t = useTranslations("camere");
   const locale = useLocale();
 

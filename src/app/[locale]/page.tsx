@@ -43,6 +43,9 @@ export default function MainPage({children}: MainPageProps) {
             {pathName === "/camere" && isLoading && <Loader />}
             <Header />
             <LenisProvider>
+              <br />
+              <br />
+              <br />
               {children}
             </LenisProvider>
             <footer className="bg-black border-t border-gray-800 mt-auto">

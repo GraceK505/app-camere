@@ -8,6 +8,7 @@ import WhatsAppLogo from "./WhatsAppLogo";
 import MailLogo from "./MailLogo";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,12 +17,33 @@ export default function Header() {
   const t = useTranslations("menu");
   const t1 = useTranslations("home");
   const locale = useLocale();
+  const locales = ['it', 'en', 'fr', 'es'];
+  const pathname = usePathname();
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.innerWidth > 768 && setIsMenuOpen(true);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  function switchLocale(pathname: string, locale: string) {
+    const segments = pathname.split('/');
+
+    if (locales.includes(segments[1])) {
+      segments[1] = locale;
+    } else {
+      segments.splice(1, 0, locale);
+    }
+
+    return segments.join('/');
+  }
+
+  const labels: Record<string, string> = {
+    it: 'IT',
+    en: 'EN',
+    fr: 'FR',
+    es: 'ES'
+  };
 
   return (
     <>
@@ -47,7 +69,7 @@ export default function Header() {
               {[
                 { label: t("home"), href: `/${locale}` },
                 { label: t("camere"), href: `/${locale}/camere` },
-                { label: t("contatti"), href: `/${locale}/contacts`},
+                { label: t("contatti"), href: `/${locale}/contact` },
               ].map((item) => (
                 <a
                   key={item.href}
@@ -80,7 +102,19 @@ export default function Header() {
               </a>
 
             </div>
-
+            <select
+              value={locale}
+              onChange={(e) => {
+                const newUrl = switchLocale(pathname, e.target.value);
+                window.location.href = newUrl;
+              }}
+            >
+              {locales.map((l) => (
+                <option className="text-[#3a3a3a]" key={l} value={l}>
+                  {labels[l]}
+                </option>
+              ))}
+            </select>
 
             {/* Mobile button */}
             <button
@@ -120,7 +154,7 @@ export default function Header() {
                 {["Home", "Camere", "Contatti"].map((item) => (
                   <a
                     key={item}
-                    href={`/${item.toLowerCase()}`}
+                    href={`/${locale}/${item.toLowerCase()}`}
                     className="text-menu text-[#3a3a3a] hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-2 rounded-md transition-colors"
                   >
                     {item}
@@ -145,6 +179,8 @@ export default function Header() {
               </div>
             </div>
           )}
+
+
         </div>
       </header>
     </>

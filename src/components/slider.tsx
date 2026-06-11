@@ -52,8 +52,9 @@ const slidesData = [
 export default function Slider() {
   const { data } = useGetAll();
     const t = useTranslations('home');
+    const tMessage = useTranslations("message")
 
-  const whatsappMessage = encodeURIComponent(t('whatsapp_message'));
+  const whatsappMessage = encodeURIComponent(tMessage('whatsapp_message'));
   return (
     <div className="w-full h-[100vh] max-w-full mx-auto">
       <Swiper
@@ -83,13 +84,13 @@ export default function Slider() {
               {/* Overlay gradient */}
               <div className={`absolute inset-0 opacity-50 filter drop-shadow-md`} />
 
-              <div className="absolute bottom-[20%] w-full h-auto left-1/2 transform -translate-x-1/2 block m-auto text-white text-center px-[10px] md:px-6">
-                <div className="mt-8 flex items-center flex-col md:flex-row justify-center gap-4 sm:flex-row">
+              <div className="absolute bottom-[15%] md:bottom-[20%] w-full h-auto left-1/2 transform -translate-x-1/2 block m-auto text-white text-center px-[10px] md:px-6">
+                <div className="mt-8 flex items-center md:flex-col md:flex-row justify-center gap-4 sm:flex-row">
                   <a
                     href={`https://wa.me/+393921094730?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 px-8 py-2 text-sm font-medium text-black transition hover:scale-105"
+                    className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 p-2 md:px-8 md:py-2 text-sm font-medium text-black transition hover:scale-105"
                   >
                    {t('book_now')} <WhatsAppLogo color="#25D366" />
                   </a>

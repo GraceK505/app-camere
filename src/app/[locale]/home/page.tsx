@@ -12,6 +12,7 @@ export default function HomePage() {
     const { data, loading, error } = useGetAll();
     const [isLoading, setIsLoading] = useState(true);
     const t = useTranslations("home")
+    const tMessage = useTranslations("message")
     const pathName = usePathname();
 
     useEffect(() => {
@@ -57,7 +58,7 @@ export default function HomePage() {
                                     {t('discover_rooms')}
                                 </Link>
                                 <Link
-                                    href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
+                                    href={`https://wa.me/+393921094730?text=${encodeURIComponent(tMessage('whatsapp_message'))}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="px-6 py-3 border border-colors-gea text-colors-gea text-emerald-400 rounded-full font-semibold rounded-buttons-hover transition-colors"

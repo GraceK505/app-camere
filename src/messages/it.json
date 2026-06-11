@@ -24,11 +24,11 @@
     "description_bold3": "Le camere sono progettate per offrire comfort, praticità e indipendenza",
     "description_normal3": ", con self check-in e tutti i servizi essenziali per un soggiorno senza complicazioni."
   },
-  "camere":{
+  "camere": {
     "book_now": "Prenota ora",
     "details": "Dettagli"
   },
-    "hero": {
+  "hero": {
     "title": "Prenota direttamente con",
     "hotelName": "GEA Guest House",
     "subtitle": "Contattaci su WhatsApp o via e-mail per verificare la disponibilità delle camere.",
@@ -65,6 +65,37 @@
       "description3": "L’ambiente è curato, silenzioso e funzionale, ideale per ricaricarsi dopo una giornata a Siracusa.",
       "amenities": "Inclusi asciugamani e kit doccia per un soggiorno senza pensieri.",
       "hashtags": "#b&bsiracusa #geaguesthouse #siracusa #casasiracusa"
+    }
+  },
+  "message": {
+    "whatsapp_message": "Ciao GEA Guest House, vorrei prenotare una camera."
+  },
+  "contact": {
+    "title": "Contattaci",
+    "description": "Siamo a tua disposizione per qualsiasi informazione su disponibilità, prezzi o servizi della struttura.",
+    "address": {
+      "label": "📍 Indirizzo",
+      "value": "Siracusa, Italia"
+    },
+    "phone": {
+      "label": "📞 Telefono",
+      "value": "+39 000 000 0000"
+    },
+    "email": {
+      "label": "✉️ Email",
+      "value": "info@geaguesthouse.it"
+    },
+    "checkin": {
+      "label": "🕒 Check-in",
+      "value": "Self check-in 24h disponibile"
+    },
+    "form": {
+      "namePlaceholder": "Il tuo nome",
+      "emailPlaceholder": "La tua email",
+      "messagePlaceholder": "Il tuo messaggio",
+      "submitButton": "Invia messaggio",
+      "sendingButton": "Invio...",
+      "successMessage": "Messaggio inviato con successo ✔"
     }
   }
 }

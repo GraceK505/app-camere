@@ -24,7 +24,7 @@
     "description_bold3": "Les chambres sont conçues pour offrir confort, praticité et indépendance",
     "description_normal3": ", avec une entrée autonome et tous les services essentiels pour un séjour sans complication."
   },
-    "camere":{
+  "camere": {
     "book_now": "Réserver maintenant",
     "details": "Plus des details"
   },
@@ -65,6 +65,37 @@
       "description3": "L'environnement est soigné, calme et fonctionnel, idéal pour recharger ses batteries après une journée à Syracuse.",
       "amenities": "Serviettes et kit de douche inclus pour un séjour sans souci.",
       "hashtags": "#b&bsiracusa #geaguesthouse #siracusa #casasiracusa"
+    }
+  },
+  "message": {
+    "whatsapp_message": "Bonjour GEA Guest House, je souhaite réserver une chambre."
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "description": "Nous sommes à votre disposition pour toute information sur la disponibilité, les prix ou les services de l'établissement.",
+    "address": {
+      "label": "📍 Adresse",
+      "value": "Syracuse, Italie"
+    },
+    "phone": {
+      "label": "📞 Téléphone",
+      "value": "+39 000 000 0000"
+    },
+    "email": {
+      "label": "✉️ Email",
+      "value": "info@geaguesthouse.it"
+    },
+    "checkin": {
+      "label": "🕒 Enregistrement",
+      "value": "Arrivée autonome 24h/24 disponible"
+    },
+    "form": {
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "Votre email",
+      "messagePlaceholder": "Votre message",
+      "submitButton": "Envoyer le message",
+      "sendingButton": "Envoi...",
+      "successMessage": "Message envoyé avec succès ✔"
     }
   }
 }

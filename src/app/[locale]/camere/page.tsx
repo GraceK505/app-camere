@@ -185,7 +185,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
                 ))}
               </p>
 
-              <div className="mt-8 flex flex-col md:flex-row flex-wrap gap-4">
+              <div className="mt-8 flex flex-col md:flex-row flex-wrap gap-4 w-fit">
                 <Link
                   href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
                   target="_blank"

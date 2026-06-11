@@ -40,7 +40,7 @@ export default function MainPage({children}: MainPageProps) {
       >
         <Provider store={store}>
           <body style={{ backgroundImage: "url(/sfondo.jpeg)" }} className="min-h-full flex flex-col bg-white font-sans transition-colors duration-300">
-            {pathName === "/camere" && isLoading && <Loader />}
+            {pathName === "/camere" && <Loader isLoading={isLoading} />}
             <Header />
             <LenisProvider>
               <br />

@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import WhatsAppLogo from "./WhatsAppLogo";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PlusIcon } from "lucide-react";
 
 type RoomStatus = "disponible" | "occupato";
 type Card = {
@@ -32,9 +32,15 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
   const [data, setData] = useState<Room[]>([]);
   const imgRef: React.RefObject<HTMLImageElement[]> = useRef([]);
   const t = useTranslations("home")
+  const tMessage = useTranslations("message")
   const locale = useLocale();
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
     setData(getData);
+
+    window.innerWidth < 768 && setIsMobile(true);
+
   }, [getData]);
   console.log("Données combinées pour CardSlider :", data);
   return (
@@ -94,12 +100,12 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                   </p>
                   <div className="flex gap-10 items-center justify-start mt-3">
                     <Link
-                      href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
+                      href={`https://wa.me/+393921094730?text=${encodeURIComponent(tMessage('whatsapp_message'))}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#2b2b2b] bg-emerald-500 hover:bg-[#059669] text-white text-sm rounded-full transition-colors"
                     >
-                      {t("book_now")} <WhatsAppLogo color="#fff" />
+                      { !isMobile ? t("book_now") : null} <WhatsAppLogo color="#fff" />
                     </Link>
 
                     <Link
@@ -108,7 +114,7 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#906b47] hover:bg-[#059669] bg-gray-700/50  text-white text-sm rounded-full transition-colors"
                     >
-                      {t("discover_room")} <ArrowRight />
+                      { !isMobile ? t("discover_room") : null} <PlusIcon />
                     </Link>
                   </div>
                 </div>

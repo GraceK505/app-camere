@@ -16,6 +16,7 @@ export default function Header() {
   const isOpen = useSelector((state: RootState) => state.drop.isOpen);
   const t = useTranslations("menu");
   const t1 = useTranslations("home");
+  const tMessage = useTranslations("message");
   const locale = useLocale();
   const locales = ['it', 'en', 'fr', 'es'];
   const pathname = usePathname();
@@ -84,7 +85,7 @@ export default function Header() {
             {/* Desktop CTA */}
             <div className="hidden md:flex gap-2 items-center space-x-4">
               <a
-                href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
+                href={`https://wa.me/+393921094730?text=${encodeURIComponent(tMessage('whatsapp_message'))}`}
                 className="text-menu flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-gray-200 py-1 px-8 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -155,14 +156,14 @@ export default function Header() {
                   <a
                     key={item}
                     href={`/${locale}/${item.toLowerCase()}`}
-                    className="text-[#3a3a3a] hover:text-emerald-600 hover:text-emerald-400 py-2 px-2 rounded-md transition-colors"
+                    className="text-[#3a3a3a] text-gray-200 py-2 px-2 rounded-md transition-colors"
                   >
                     {item}
                   </a>
                 ))}
                 <a
                   href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
-                  className="flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-[#3a3a3a] hover:text-emerald-600 py-1 px-8 transition-colors"
+                  className="flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-gray-200 py-1 px-8 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -170,7 +171,7 @@ export default function Header() {
                 </a>
                 <a
                   href="mailto:gea.siracusa@hotmail.com"
-                  className="flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-[#3a3a3a] hover:text-emerald-600 hover:text-emerald-400 py-2 px-8 transition-colors"
+                  className="flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-gray-200 py-1 px-8 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

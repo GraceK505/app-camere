@@ -28,7 +28,7 @@
     "book_now": "Book now",
     "details": "More details"
   },
-    "hero": {
+  "hero": {
     "title": "Book directly with",
     "hotelName": "GEA Guest House",
     "subtitle": "Contact us on WhatsApp or by email to check room availability.",
@@ -41,7 +41,7 @@
   "alt": {
     "heroPlaceholder": "Hero Video Placeholder"
   },
-   "rooms": {
+  "rooms": {
     "eva": {
       "title": "Eva Room is bright, welcoming, and designed for those who want to experience Syracuse with more space and comfort.",
       "description1": "It features a double bed, a sofa bed, and a balcony with an external view, providing natural light and direct contact with the city.",
@@ -65,6 +65,37 @@
       "description3": "The environment is cared for, quiet, and functional, ideal for recharging after a day in Syracuse.",
       "amenities": "Towels and shower kit included for a worry‑free stay.",
       "hashtags": "#b&bsiracusa #geaguesthouse #siracusa #casasiracusa"
+    }
+  },
+  "message": {
+    "whatsapp_message": "Hello GEA Guest House, I would like to book a room."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "We are at your disposal for any information about availability, prices, or facilities.",
+    "address": {
+      "label": "📍 Address",
+      "value": "Syracuse, Italy"
+    },
+    "phone": {
+      "label": "📞 Phone",
+      "value": "+39 000 000 0000"
+    },
+    "email": {
+      "label": "✉️ Email",
+      "value": "info@geaguesthouse.it"
+    },
+    "checkin": {
+      "label": "🕒 Check-in",
+      "value": "24h self check-in available"
+    },
+    "form": {
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "messagePlaceholder": "Your message",
+      "submitButton": "Send message",
+      "sendingButton": "Sending...",
+      "successMessage": "Message sent successfully ✔"
     }
   }
 }

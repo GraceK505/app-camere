@@ -66,5 +66,36 @@
       "amenities": "Toallas y kit de ducha incluidos para una estancia sin preocupaciones.",
       "hashtags": "#bnbsiracusa #geaguesthouse #siracusa #casasiracusa"
     }
+  },
+  "message": {
+    "whatsapp_message": "Hola GEA Guest House, me gustaría reservar una habitación."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "description": "Estamos a tu disposición para cualquier información sobre disponibilidad, precios o servicios del establecimiento.",
+    "address": {
+      "label": "📍 Dirección",
+      "value": "Siracusa, Italia"
+    },
+    "phone": {
+      "label": "📞 Teléfono",
+      "value": "+39 000 000 0000"
+    },
+    "email": {
+      "label": "✉️ Correo electrónico",
+      "value": "info@geaguesthouse.it"
+    },
+    "checkin": {
+      "label": "🕒 Check-in",
+      "value": "Check-in automático 24h disponible"
+    },
+    "form": {
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "Tu correo electrónico",
+      "messagePlaceholder": "Tu mensaje",
+      "submitButton": "Enviar mensaje",
+      "sendingButton": "Enviando...",
+      "successMessage": "Mensaje enviado con éxito ✔"
+    }
   }
 }

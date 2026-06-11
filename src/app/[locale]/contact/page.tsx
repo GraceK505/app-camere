@@ -72,14 +72,14 @@ export default function ContactSection() {
       </div>
 
       {/* ================= RIGHT: FORM ================= */}
-      <div className="bg-white dark:bg-white/10 shadow-lg rounded-2xl h-[40vh]">
+      <div className="bg-white bg-white/10 shadow-lg rounded-2xl h-[40vh]">
         <form onSubmit={handleSubmit} className="space-y-4 text-[#3a3a3a]  p-6 bg-white rounded-2xl">
           <input
             name="name"
             type="text"
             placeholder="Il tuo nome"
             required
-            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-lg border border-gray-300 border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <input
@@ -87,7 +87,7 @@ export default function ContactSection() {
             type="email"
             placeholder="La tua email"
             required
-            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-lg border border-gray-300 border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <textarea
@@ -95,7 +95,7 @@ export default function ContactSection() {
             placeholder="Il tuo messaggio"
             rows={5}
             required
-            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded-lg border border-gray-300 border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <button

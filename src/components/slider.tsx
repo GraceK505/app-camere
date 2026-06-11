@@ -86,7 +86,7 @@ export default function Slider() {
               <div className="absolute bottom-[20%] w-full h-auto left-1/2 transform -translate-x-1/2 block m-auto text-white text-center px-[10px] md:px-6">
                 <div className="mt-8 flex items-center flex-col md:flex-row justify-center gap-4 sm:flex-row">
                   <a
-                    href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=${whatsappMessage}`}
+                    href={`https://wa.me/+393921094730?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 px-8 py-2 text-sm font-medium text-black transition hover:scale-105"

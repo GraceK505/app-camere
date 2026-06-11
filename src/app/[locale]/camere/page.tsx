@@ -94,7 +94,7 @@ const HeroSection = () => {
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
+            href={`https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
             className="group inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full 
                bg-gradient-to-r from-green-50 to-emerald-50 
                border border-[#cbbfae] bg-white/30
@@ -167,7 +167,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
 
             {/* Content */}
             <div className="flex flex-col justify-center">
-              <p className="mb-3 text-sm uppercase tracking-[0.3em] text-neutral-500 dark:text-neutral-400">
+              <p className="mb-3 text-sm uppercase tracking-[0.3em] text-neutral-500 text-neutral-400">
                 {/* Suite {String(index + 1).padStart(2, "0")} */}
               </p>
 
@@ -187,7 +187,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
 
               <div className="mt-8 flex flex-col md:flex-row flex-wrap gap-4">
                 <Link
-                  href="https://wa.me/+393519999999?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20la%20camera%20${roomName}."
+                  href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-full border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133]  px-6 py-3 text-sm font-medium text-white transition hover:scale-105"

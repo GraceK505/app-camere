@@ -50,7 +50,7 @@ export default function MainPage({children}: MainPageProps) {
             </LenisProvider>
             <footer className="bg-black border-t border-gray-800 mt-auto">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <p className="text-center text-gray-500 dark:text-gray-400 text-sm">
+                <p className="text-center text-gray-500 text-gray-400 text-sm">
                   © {new Date().getFullYear()} GEA GUEST HOUSE Tous droits réservés.
                 </p>
               </div>

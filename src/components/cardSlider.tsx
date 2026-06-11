@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import WhatsAppLogo from "./WhatsAppLogo";
 import { useLocale, useTranslations } from "next-intl";
+import { ArrowRight } from "lucide-react";
 
 type RoomStatus = "disponible" | "occupato";
 type Card = {
@@ -37,13 +38,13 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
   }, [getData]);
   console.log("Données combinées pour CardSlider :", data);
   return (
-    <div className="w-full py-8 md:py-12 bg-gray-100 dark:bg-white/10">
+    <div className="w-full py-8 md:py-12 bg-gray-100 bg-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-black mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 text-black mb-8">
           GEA Guest House
         </h2>
 
-        <div className="text-center text-gray-600 dark:text-gray-900 mb-12 max-w-2xl mx-auto space-y-5 leading-relaxed">
+        <div className="text-center text-gray-600 text-gray-900 mb-12 max-w-2xl mx-auto space-y-5 leading-relaxed">
           <p className="description">
             <strong>{t('description_bold1')}</strong>
             {t('description_normal1')}
@@ -72,9 +73,9 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
           className="card-swiper pb-12"
         >
           {data.map((card: Room) => (
-            <SwiperSlide key={card.id} className={`bg-white dark:bg-white/10 rounded-2xl shadow-lg overflow-hidden md:!w-[450px]`}>
+            <SwiperSlide key={card.id} className={`bg-white bg-white/10 rounded-2xl shadow-lg overflow-hidden md:!w-[450px]`}>
               <div
-                className="bg-white dark:bg-white/10 overflow-hidden flex flex-col"
+                className="bg-white bg-white/10 overflow-hidden flex flex-col"
               >
                 <div className="relative h-[300px] w-full rounded-t-lg overflow-hidden">
                   <img
@@ -85,18 +86,18 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                   />
                 </div>
                 <div className="relative p-5 bg-white">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold text-gray-800 text-gray-900 mb-2">
                     {card.category}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-900 text-sm mb-3">
+                  <p className="text-gray-600 text-gray-900 text-sm mb-3">
                     {card.description}
                   </p>
                   <div className="flex gap-10 items-center justify-start mt-3">
                     <Link
-                      href={`https://wa.me/${process.env.NUMBER_WHATSAPP}?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera.`}
+                      href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#2b2b2b] bg-emerald-500 hover:bg-[#059669]  text-white text-sm rounded-full transition-colors"
+                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#2b2b2b] bg-emerald-500 hover:bg-[#059669] text-white text-sm rounded-full transition-colors"
                     >
                       {t("book_now")} <WhatsAppLogo color="#fff" />
                     </Link>
@@ -105,9 +106,9 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                       href={`${locale}/camere/camera/${card.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#906b47] bg-gray-700/50  text-white text-sm rounded-full transition-colors"
+                      className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#906b47] hover:bg-[#059669] bg-gray-700/50  text-white text-sm rounded-full transition-colors"
                     >
-                      {t("discover_room")} <WhatsAppLogo color="#fff" />
+                      {t("discover_room")} <ArrowRight />
                     </Link>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ export default function HomePage() {
     }, []);
     return (
         <>
-            <div className="min-h-screen bg-gradient-to-br from-zinc-40 to-gray-100 dark:from-white dark:to-zinc-100 font-sans transition-colors duration-300">
+            <div className="min-h-screen bg-gradient-to-br from-zinc-40 to-gray-100 from-white to-zinc-100 font-sans transition-colors duration-300">
                 {/* CONTENU PRINCIPAL AVEC PADDING POUR HEADER FIXE */}
                 <main style={{ backgroundImage: "url(/sfondo.jpeg)" }} className="relative w-full min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg">
                     {/* Slider avec espacement adapté */}
@@ -37,11 +37,11 @@ export default function HomePage() {
                     {/* SECTION HERO / PRÉSENTATION */}
                     <section className="max-w-full py-16 md:py-24 bg-white shadow-[inset_0_0_50px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center text-center px-6 mx-auto">
                         <div className="text-center">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1f1f1f] dark:text-black mb-6">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1f1f1f] text-black mb-6">
                                 {t('welcome_title_normal')}
                                 <span className="text-colors-gea">{t('welcome_title_bold')}</span>
                             </h1>
-                            <p className="mt-4 text-lg md:text-xl text-black dark:text-black-300 max-w-3xl mx-auto">
+                            <p className="mt-4 text-lg md:text-xl text-black text-black-300 max-w-3xl mx-auto">
                                 {t('welcome_subtitle_normal1')}
                                 {t('welcome_subtitle_normal2')}
                                 <strong>{t('welcome_subtitle_bold1')}</strong>,{' '}
@@ -57,10 +57,10 @@ export default function HomePage() {
                                     {t('discover_rooms')}
                                 </Link>
                                 <Link
-                                    href={`https://wa.me/${process.env.NEXT_PUBLIC_NUMBER_WHATSAPP}?text=${encodeURIComponent(t('whatsapp_message'))}`}
+                                    href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-6 py-3 border border-colors-gea text-colors-gea dark:text-emerald-400 rounded-full font-semibold rounded-buttons-hover transition-colors"
+                                    className="px-6 py-3 border border-colors-gea text-colors-gea text-emerald-400 rounded-full font-semibold rounded-buttons-hover transition-colors"
                                 >
                                     {t('book_now')}
                                 </Link>

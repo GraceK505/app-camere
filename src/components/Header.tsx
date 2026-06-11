@@ -49,14 +49,14 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/90 dark:bg-black/90 backdrop-blur shadow-lg"
-          : "bg-white dark:bg-black shadow-md"
+          ? "bg-black/90 backdrop-blur shadow-lg"
+          : "bg-black shadow-md"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href={`/${locale}`} className="flex items-center space-x-2">
               <div className="w-10 h-10 md:w-12 md:h-12 relative">
                 <div className="flex w-[80px] h-[55px] absolute -top-2">
                   <Image src="/logo.png" alt="Logo" fill className="!relative w-full h-full object-contain rounded-full" />
@@ -74,7 +74,7 @@ export default function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-200 text-menu transition-colors font-medium"
+                  className="text-menu text-gray-200 transition-colors font-medium"
                 >
                   {item.label}
                 </a>
@@ -84,8 +84,8 @@ export default function Header() {
             {/* Desktop CTA */}
             <div className="hidden md:flex gap-2 items-center space-x-4">
               <a
-                href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
-                className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 dark:text-gray-200 py-1 px-8 transition-colors"
+                href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
+                className="text-menu flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-gray-200 py-1 px-8 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -94,7 +94,7 @@ export default function Header() {
 
               <a
                 href="mailto:gea.siracusa@hotmail.com"
-                className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 dark:text-gray-200 py-1 px-8 transition-colors"
+                className="text-menu flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-gray-200 py-1 px-8 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -119,7 +119,7 @@ export default function Header() {
             {/* Mobile button */}
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="md:hidden p-2 rounded-md text-gray-700 text-[#3a3a3a] hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="md:hidden p-2 rounded-md text-gray-700 text-[#3a3a3a] hover:bg-gray-100 hover:bg-gray-800"
               aria-label="Menu"
             >
               <svg
@@ -149,20 +149,20 @@ export default function Header() {
 
           {/* Mobile menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-800">
+            <div className="md:hidden py-4 border-t border-gray-200 border-gray-800">
               <div className="flex flex-col space-y-3">
                 {["Home", "Camere", "Contatti"].map((item) => (
                   <a
                     key={item}
                     href={`/${locale}/${item.toLowerCase()}`}
-                    className="text-menu text-[#3a3a3a] hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-2 rounded-md transition-colors"
+                    className="text-[#3a3a3a] hover:text-emerald-600 hover:text-emerald-400 py-2 px-2 rounded-md transition-colors"
                   >
                     {item}
                   </a>
                 ))}
                 <a
                   href="https://wa.me/+393921094730?text=Ciao%20GEA%20Guest%20House%2C%20vorrei%20prenotare%20una%20camera."
-                  className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 text-[#3a3a3a] py-1 px-8 transition-colors"
+                  className="flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-[#3a3a3a] hover:text-emerald-600 py-1 px-8 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -170,7 +170,7 @@ export default function Header() {
                 </a>
                 <a
                   href="mailto:gea.siracusa@hotmail.com"
-                  className="text-menu flex items-center justify-between border border-gray-300 dark:border-gray-600 rounded-full gap-2 text-[#3a3a3a] hover:text-emerald-600 dark:hover:text-emerald-400 py-2 px-8 transition-colors"
+                  className="flex items-center justify-between border border-gray-300 border-gray-600 rounded-full gap-2 text-[#3a3a3a] hover:text-emerald-600 hover:text-emerald-400 py-2 px-8 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

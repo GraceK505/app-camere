@@ -88,7 +88,7 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                     ref={(el) => { el !== null ? imgRef.current[card.id] = el : el }}
                     src={`/camere/${card.category.replace("Camera", "").toLowerCase().trim()}.png`}
                     alt={card.category || "Chambre d'hôtel"}
-                    className="relative object-cover transition-all duration-300 hover:scale-105 w-auto h-full"
+                    className="relative md:object-cover transition-all duration-300 hover:scale-105 w-auto h-full"
                   />
                 </div>
                 <div className="relative p-5 bg-white">

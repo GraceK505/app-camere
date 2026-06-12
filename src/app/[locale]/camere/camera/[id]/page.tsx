@@ -1,4 +1,5 @@
 import ClientGallery from "@/components/ClientGallery";
+import ImageSlider from "@/components/ImageSlider";
 import { RoomDetails } from "@/components/RoomDetails";
 import { useTranslations } from "next-intl";
 import { cookies, headers } from "next/headers";
@@ -16,33 +17,11 @@ export default async function SingleRoomPage({ params }: PageProps) {
   const protocol = headersList.get('x-forwarded-proto') || 'http';
   const host = headersList.get('host') || 'localhost:3000';
   const baseUrl = `${protocol}://${host}`;
-
+  
   if (!id) {
     return <div className="p-8 text-center">ID de chambre manquant</div>;
   }
-  function renderWithInstagramTags(text: string) {
-    const parts = text.split(/(#[a-zA-Z0-9_]+)/g);
 
-    return parts.map((part, i) => {
-      if (part.startsWith("#")) {
-        const tag = part.replace("#", "");
-
-        return (
-          <a
-            key={i}
-            href={`https://www.instagram.com/explore/tags/${tag}/`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#4a4a4a] font-semibold hover:underline"
-          >
-            {part}
-          </a>
-        );
-      }
-
-      return <span key={i}>{part}</span>;
-    });
-  }
   try {
     // ✅ SAFE FETCH (works in dev + production)
     const response = await fetch(
@@ -74,19 +53,31 @@ export default async function SingleRoomPage({ params }: PageProps) {
         ? `/camere/${room.images[0].replace(/-\d+$/, "").trim()}.png`
         : "https://blocks.astratic.com/img/general-img-landscape.png";
 
+
+    function handleGallery(state: boolean) {
+      "use client"
+      state = !state
+    }
+    const images = room
     return (
       <section className="pt-20 max-w-7xl mx-auto px-4 py-16 md:py-24 bg-[#00000000] text-[#2b2b2b]" style={{ backgroundImage: "url(/sfondo.jpeg)" }}>
 
         {/* HERO */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
 
-          <div className="h-[320px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl">
-            <img
-              src={mainImage}
-              alt={room.category}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <ImageSlider
+            title={room.category}
+            category={category}
+            images={room.images as any}
+          >
+            <div className="h-[320px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src={mainImage}
+                alt={room.category}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </ImageSlider>
 
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mt-3 text-[#2b2b2b]">
@@ -128,10 +119,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
 
         </div>
 
-        <br /><br /><br />
-
-        {/* GALLERY */}
-        <ClientGallery title={"Galleria immagini"} data={room} />
+        <br /><br />
 
         {/* RELATED */}
         {relatedRooms.length > 0 && (

@@ -36,7 +36,7 @@ export default function HomePage() {
         </div> */}
                     <div className="bg-gradient-to-t from-black via-[#9c9076] to-transparent"></div>
                     {/* SECTION HERO / PRÉSENTATION */}
-                    <section className="max-w-full py-16 md:py-24 bg-white shadow-[inset_0_0_50px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center text-center px-6 mx-auto">
+                    <section style={{ backgroundImage: "url(/sfondo.jpeg)" }} className="max-w-full py-16 md:py-24 bg-white shadow-[inset_0_0_50px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center text-center px-6 mx-auto">
                         <div className="text-center">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1f1f1f] text-black mb-6">
                                 {t('welcome_title_normal')}

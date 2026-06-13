@@ -5,6 +5,10 @@
 @import "swiper/css/pagination";
 @import "swiper/css/effect-fade";
 
+body .iub__us-widget{
+  display: none !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

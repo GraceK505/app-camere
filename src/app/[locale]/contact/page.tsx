@@ -5,33 +5,33 @@ import { useState } from "react";
 
 export default function ContactSection() {
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const t = useTranslations('contact');
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-
-    const form = new FormData(e.currentTarget);
-
-    const data = {
-      name: form.get("name"),
-      email: form.get("email"),
-      message: form.get("message"),
-    };
+    setStatus(null);
 
     try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
 
-      setSuccess(true);
-      e.currentTarget.reset();
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || 'Something went wrong');
+      setLoading(true)
+      setStatus({ type: 'success', text: 'Message sent! We’ll get back to you soon.' });
+      setFormData({ name: '', email: '', message: '' }); // reset form
+    } catch (err: any) {
+      setStatus({ type: 'error', text: err.message });
     }
   };
 
@@ -94,6 +94,8 @@ export default function ContactSection() {
               name="name"
               type="text"
               placeholder={t('form.namePlaceholder')}
+              value={formData.name}
+              onChange={handleChange}
               required
               className="w-full p-3 rounded-lg border border-gray-300 border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -102,6 +104,8 @@ export default function ContactSection() {
               name="email"
               type="email"
               placeholder={t('form.emailPlaceholder')}
+              value={formData.email}
+              onChange={handleChange}
               required
               className="w-full p-3 rounded-lg border border-gray-300 border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -110,6 +114,8 @@ export default function ContactSection() {
               name="message"
               placeholder={t('form.messagePlaceholder')}
               rows={5}
+              value={formData.message}
+              onChange={handleChange}
               required
               className="w-full p-3 rounded-lg border border-gray-300 border-gray-700 bg-transparent text-[#3a3a3a] focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -122,7 +128,7 @@ export default function ContactSection() {
               {loading ? t('form.sendingButton') : t('form.submitButton')}
             </button>
 
-            {success && (
+            {status && (
               <p className="text-green-500 text-center mt-2">
                 {t('form.successMessage')}
               </p>

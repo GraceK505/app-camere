@@ -90,13 +90,13 @@ export default function Slider() {
                     href={`https://wa.me/+393921094730?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 p-2 md:px-8 md:py-2 text-sm font-medium text-black transition hover:scale-105"
+                    className="rounded-full flex hover:text-white border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133] items-center gap-2 p-2 md:px-8 text-sm font-medium text-black transition hover:scale-105"
                   >
                    {t('book_now')} <WhatsAppLogo color="#25D366" />
                   </a>
                   <a
                     href="/camere#hero"
-                    className="rounded-full border-2 border-[#000000] text-[#fff] px-8 py-2 text-sm font-medium transition bg-gray-500/50 hover:bg-gray-900/50"
+                    className="rounded-full border-2 border-[#000000] text-[#fff] p-2 p-3 md:px-8 text-sm font-medium transition bg-gray-500/50 hover:bg-gray-900/50"
                   >
                     {t('discover_rooms')}
                   </a>

@@ -44,7 +44,7 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
   }, [getData]);
   console.log("Données combinées pour CardSlider :", data);
   return (
-    <div className="w-full py-8 md:py-12 bg-gray-100 bg-white/10">
+    <div className="w-full py-8 md:py-12 bg-[#00000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 text-black mb-8">
           GEA Guest House

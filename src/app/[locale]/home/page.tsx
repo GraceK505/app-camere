@@ -14,16 +14,24 @@ export default function HomePage() {
     const t = useTranslations("home")
     const tMessage = useTranslations("message")
     const pathName = usePathname();
-
     useEffect(() => {
+        const script = document.createElement('script');
+        script.src = "https://embeds.iubenda.com/widgets/4ded1f47-821f-4333-b9ee-d37e1976107a.js";
+        script.async = true;
+        document.body.appendChild(script);
+
         const timer = setTimeout(() => setIsLoading(false), 3000);
-        return () => clearTimeout(timer);
+        return () => {
+            clearTimeout(timer);
+            document.body.removeChild(script);
+        }
     }, []);
+
     return (
         <>
-            <div className="min-h-screen bg-gradient-to-br from-zinc-40 to-gray-100 from-white to-zinc-100 font-sans transition-colors duration-300">
+            <div className="min-h-screen font-sans transition-colors duration-300">
                 {/* CONTENU PRINCIPAL AVEC PADDING POUR HEADER FIXE */}
-                <main style={{ backgroundImage: "url(/sfondo.jpeg)" }} className="relative w-full min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg">
+                <main className="relative w-full min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg">
                     {/* Slider avec espacement adapté */}
                     <div className="w-full">
                         <Slider />
@@ -36,7 +44,7 @@ export default function HomePage() {
         </div> */}
                     <div className="bg-gradient-to-t from-black via-[#9c9076] to-transparent"></div>
                     {/* SECTION HERO / PRÉSENTATION */}
-                    <section style={{ backgroundImage: "url(/sfondo.jpeg)" }} className="max-w-full py-16 md:py-24 bg-white shadow-[inset_0_0_50px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center text-center px-6 mx-auto">
+                    <section className="max-w-full py-16 md:py-24 shadow-[inset_0_0_50px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center text-center px-6 mx-auto">
                         <div className="text-center">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1f1f1f] text-black mb-6">
                                 {t('welcome_title_normal')}

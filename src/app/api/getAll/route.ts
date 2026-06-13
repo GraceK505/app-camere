@@ -35,7 +35,7 @@ function getTableNameFromRequest(request: NextRequest): string {
   const { pathname } = new URL(request.url);
   // Match /en, /fr, /es at the start of the path (e.g., /en/api/rooms)
   const match = pathname.match(/^\/(en|fr|es)\//);
-  const locale = match ? match[1] : 'en';
+  const locale = match ? match[1] : 'it';
   return `app_camere_${locale}`;
 }
 

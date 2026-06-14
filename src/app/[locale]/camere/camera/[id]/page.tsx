@@ -143,7 +143,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
                         ? `/camere/${item.images[0].replace(/-\d+$/, "").trim()}.png`
                         : "https://blocks.astratic.com/img/general-img-landscape.png"
                     }
-                    className="h-64 w-full object-cover"
+                    className="h-auto md:h-64 w-full object-cover"
                     alt={item.title}
                   />
 

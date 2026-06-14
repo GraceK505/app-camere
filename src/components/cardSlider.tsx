@@ -83,7 +83,7 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
               <div
                 className="bg-white bg-white/10 overflow-hidden flex flex-col"
               >
-                <div className="relative h-[300px] w-full rounded-t-lg overflow-hidden">
+                <div className="relative h-auto md:h-[300px] w-full rounded-t-lg overflow-hidden">
                   <img
                     ref={(el) => { el !== null ? imgRef.current[card.id] = el : el }}
                     src={`/camere/${card.category.replace("Camera", "").toLowerCase().trim()}.png`}
@@ -114,7 +114,7 @@ export default function CardSlider({ getData }: { getData: Room[] }) {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-3 py-1.5 border-2 border-[#000000bd] text-[#906b47] hover:bg-[#059669] bg-gray-700/50  text-white text-sm rounded-full transition-colors"
                     >
-                      { !isMobile ? t("discover_room") : null} <PlusIcon />
+                      { !isMobile ? t("discover_room") : null} <ArrowRight />
                     </Link>
                   </div>
                 </div>

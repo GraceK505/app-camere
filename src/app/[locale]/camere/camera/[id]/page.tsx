@@ -1,6 +1,7 @@
 import ClientGallery from "@/components/ClientGallery";
 import ImageSlider from "@/components/ImageSlider";
 import { RoomDetails } from "@/components/RoomDetails";
+import { Title } from "@/components/Title";
 import { useTranslations } from "next-intl";
 import { cookies, headers } from "next/headers";
 import Link from "next/link";
@@ -125,9 +126,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
         {relatedRooms.length > 0 && (
           <div className="mt-24">
 
-            <h2 className="text-3xl font-bold text-[#2b2b2b]">
-              D’autres chambres à découvrir
-            </h2>
+            <Title />
 
             <div className="mt-8 grid md:grid-cols-3 gap-6">
 

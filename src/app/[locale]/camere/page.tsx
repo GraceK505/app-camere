@@ -10,13 +10,16 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGetAll } from "@/customHooks/useGetAll";
 import Link from "next/link";
 import MailLogo from "@/components/MailLogo";
 import WhatsAppLogo from "@/components/WhatsAppLogo";
 import { ArrowDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import Lenis from "@studio-freight/lenis/types";
+import { ScrollToPlugin } from "gsap/all";
+import gsap from "gsap";
 
 type RoomStatus = "disponible" | "occupato";
 type Card = {
@@ -40,17 +43,21 @@ declare namespace JSX {
     >;
   }
 }
-
+gsap.registerPlugin(ScrollToPlugin) 
 export default function CamerePage() {
   const { data, loading, error } = useGetAll();
   const [parsed, setParsed] = useState<Room[]>([]);
+  const lenisRef = useRef<Lenis | null>(null);
 
-  useEffect(() => {
-    setParsed(data);
-  }, [data]);
+useEffect(() => {
+  setParsed(data);
+  gsap.to(window, { duration: 2, scrollTo: 1000 });
+}, [data]);
+
   return (
     <main className="w-full bg-white min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg" style={{ backgroundImage: "url(/sfondo.jpeg)" }}>
       <HeroSection />
+      <div></div>
       <RoomsSection cardsData={parsed} />
     </main>
   );
@@ -150,7 +157,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
               }`}
           >
             {/* Image */}
-            <div className="group relative overflow-hidden rounded-3xl md:h-[390px]">
+            <div id="hero" className="group relative overflow-hidden rounded-3xl md:h-[390px]">
               <img
                 src={
                   ["giulio", "aria", "eva"].filter((name) =>

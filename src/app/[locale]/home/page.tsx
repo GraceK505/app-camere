@@ -60,7 +60,7 @@ export default function HomePage() {
                             </p>
                             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link
-                                    href="/camere#hero"
+                                    href="/camere"
                                     className="px-6 py-3 border-2 border-[#000000bd] text-[#fff] bg-[#6b4e3d] hover:bg-[#5a4133] hover:text-white rounded-full font-semibold transition-all transform hover:scale-105"
                                 >
                                     {t('discover_rooms')}

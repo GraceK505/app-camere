@@ -95,7 +95,7 @@ export default function Slider() {
                    {t('book_now')} <WhatsAppLogo color="#25D366" />
                   </a>
                   <a
-                    href="/camere#hero"
+                    href="/camere"
                     className="rounded-full border-2 border-[#000000] text-[#fff] p-2 p-3 md:px-8 text-sm font-medium transition bg-gray-500/50 hover:bg-gray-900/50"
                   >
                     {t('discover_rooms')}

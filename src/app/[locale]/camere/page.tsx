@@ -150,7 +150,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
               }`}
           >
             {/* Image */}
-            <div className="group relative overflow-hidden rounded-3xl">
+            <div className="group relative overflow-hidden rounded-3xl md:h-[390px]">
               <img
                 src={
                   ["giulio", "aria", "eva"].filter((name) =>
@@ -160,7 +160,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
                     : "/placeholder.jpeg"
                 }
                 alt={room.image}
-                className="h-auto md:h-[420px] w-full object-cover transition duration-2000 group-hover:scale-105 md:h-[520px]"
+                className="w-full h-full object-cover transition duration-2000 group-hover:scale-105"
               />
 
               <div className="absolute inset-0 bg-black/10 transition group-hover:bg-black/20" />

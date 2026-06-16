@@ -14,7 +14,7 @@ export function useGetAll() {
       try {
         setLoading(true);
 
-        const res = await fetch(`${locale == "it" ? "": "/"}${locale}/api/getAll`);
+        const res = await fetch(`/${locale}/api/getAll`);
         if (!res.ok) throw new Error("Failed to fetch data");
 
         const json = await res.json();

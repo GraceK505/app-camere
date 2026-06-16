@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { Geist, Geist_Mono } from "next/font/google";
 import { usePathname } from "next/navigation";
 import Loader from "@/components/loader";
+import { useGetAll } from "@/customHooks/useGetAll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,13 +25,9 @@ interface MainPageProps {
   children: React.ReactNode;
 }
 export default function MainPage({children}: MainPageProps) {
-  const [isLoading, setIsLoading] = useState(true);
+  const {loading} = useGetAll();
   const pathName = usePathname();
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
   return (
     <>
       <html
@@ -41,7 +38,7 @@ export default function MainPage({children}: MainPageProps) {
         <Provider store={store}>
           <body style={{ backgroundImage: "url(/sfondo.jpeg)" }} className="min-h-full flex flex-col bg-white font-sans transition-colors duration-300">
             
-            {pathName === "/camere" && <Loader isLoading={isLoading} />}
+            {loading && <Loader />}
             <Header />
             <LenisProvider>
               <br />

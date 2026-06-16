@@ -50,15 +50,18 @@ export default function CamerePage() {
   const lenisRef = useRef<Lenis | null>(null);
 
 useEffect(() => {
-  setParsed(data);
   gsap.to(window, { duration: 2, scrollTo: 1000 });
-}, [data]);
+}, []);
 
+useEffect(() => {
+  setParsed(data);
+}, [data]);
+console.log(data)
   return (
     <main className="w-full bg-white min-h-screen text-neutral-900 text-[#3a3a3a] sm:text-sm md:text-base lg:text-lg" style={{ backgroundImage: "url(/sfondo.jpeg)" }}>
       <HeroSection />
       <div></div>
-      <RoomsSection cardsData={parsed} />
+      <RoomsSection cardsData={data} />
     </main>
   );
 }

@@ -66,7 +66,7 @@ const HeroSection = () => {
         <img
           src="/videos/hero-image.png"
           alt={tAlt('heroPlaceholder')}
-          className="object-cover object-center md:w-full md:h-[90vh]"
+          className="object-cover object-center md:w-full h-[110vh]"
         />
       </section>
 
@@ -132,6 +132,7 @@ const HeroSection = () => {
 
 const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
   const t = useTranslations("camere");
+  const tHome = useTranslations("home");
   const locale = useLocale();
 
   return (
@@ -159,7 +160,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
                     : "/placeholder.jpeg"
                 }
                 alt={room.image}
-                className="h-[420px] w-full object-cover transition duration-2000 group-hover:scale-105 md:h-[520px]"
+                className="h-auto md:h-[420px] w-full object-cover transition duration-2000 group-hover:scale-105 md:h-[520px]"
               />
 
               <div className="absolute inset-0 bg-black/10 transition group-hover:bg-black/20" />
@@ -187,7 +188,7 @@ const RoomsSection = ({ cardsData }: { cardsData: any[] }) => {
 
               <div className="mt-8 flex flex-col md:flex-row flex-wrap gap-4 w-fit">
                 <Link
-                  href={`https://wa.me/+393921094730?text=${encodeURIComponent(t('whatsapp_message'))}`}
+                  href={`https://wa.me/+393921094730?text=${encodeURIComponent(tHome('whatsapp_message'))}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-full border-2 border-[#000000bd] text-white bg-[#6b4e3d] hover:bg-[#5a4133]  px-6 py-3 text-sm font-medium text-white transition hover:scale-105"

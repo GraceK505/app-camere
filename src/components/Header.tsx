@@ -9,6 +9,7 @@ import MailLogo from "./MailLogo";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { ArrowDown } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,20 +104,42 @@ export default function Header() {
               </a>
 
             </div>
-            <select
-              value={locale}
-              onChange={(e) => {
-                const newUrl = switchLocale(pathname, e.target.value);
-                window.location.href = newUrl;
-              }}
-            >
-              {locales.map((l) => (
-                <option className="text-[#3a3a3a]" key={l} value={l}>
-                  {labels[l]}
-                </option>
-              ))}
-            </select>
-
+            <div className="relative inline-block">
+              <select
+                className="
+                    appearance-none
+                    text-white
+                    pl-4
+                    pr-10
+                    py-2
+                    cursor-pointer
+                    outline-none
+                  "
+                value={locale}
+                onChange={(e) => {
+                  const newUrl = switchLocale(pathname, e.target.value);
+                  window.location.href = newUrl;
+                }}
+              >
+                {locales.map((l) => (
+                  <option className="text-[#3a3a3a]" key={l} value={l}>
+                    {labels[l]}
+                  </option>
+                ))}
+              </select>
+              <ArrowDown
+                className="
+                    absolute
+                    right-3
+                    top-1/2
+                    -translate-y-1/2
+                    pointer-events-none
+                    h-4
+                    w-4
+                    text-white
+                  "
+              />
+            </div>
             {/* Mobile button */}
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}

@@ -12,25 +12,30 @@ interface PageProps {
 
 export default async function SingleRoomPage({ params }: PageProps) {
   const { id } = await params;
+  
   const isDev = process.env.NODE_ENV === "development";
   const headersList = await headers();
-
+  const cookieStore = await cookies();
   const protocol = headersList.get('x-forwarded-proto') || 'http';
   const host = headersList.get('host') || 'localhost:3000';
   const baseUrl = `${protocol}://${host}`;
   
+    const locale =
+    cookieStore.get("NEXT_LOCALE")?.value ??
+    cookieStore.get("locale")?.value ??
+    "it";
   if (!id) {
     return <div className="p-8 text-center">ID de chambre manquant</div>;
   }
-
+  console.log(locale)
   try {
     // ✅ SAFE FETCH (works in dev + production)
-    const response = await fetch(
-      `${baseUrl}/api/getAll`,
-      {
-        cache: "no-store",
-      }
-    );
+  const response = await fetch(
+    `${baseUrl}${locale == "it" ? "": "/"}${locale}/api/getAll`,
+    {
+      cache: "no-store",
+    }
+  );
 
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);
@@ -46,7 +51,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
     const relatedRooms = allRooms
       .filter((r: any) => r.id.toString() !== id)
       .slice(0, 3);
-
+    
     const category = room.category?.replace("Camera ", "").toLowerCase();
     const highlight = "text-white font-bold";
     const mainImage =

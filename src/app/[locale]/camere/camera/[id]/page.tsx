@@ -32,7 +32,7 @@ export default async function SingleRoomPage({ params }: PageProps) {
   try {
     // ✅ SAFE FETCH (works in dev + production)
   const response = await fetch(
-    `${baseUrl}${locale == "it" ? "": "/"}${locale}/api/getAll`,
+    `${baseUrl}/${locale}/api/getAll`,
     {
       cache: "no-store",
     }
